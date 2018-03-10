@@ -1,0 +1,235 @@
+{%load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>All your Rides</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{% static 'css/offerdetails.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static  'css/font-awesome.min.css' %}" type="text/css">
+  <!-- <link rel="stylesheet" href="{% static 'images/img_avatar.png' %}" type="text/css"> -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+</head>
+<body>
+  <header id="header">
+    <nav class="navbar navbar-default navbar-fixed-top" data-spy="affix" data-offset-top="10">
+      <div class="float-left"> <a href="{% url 'travel:index' %}"><img src="{% static 'images/logo1.png'%}" alt="image"/></a> </div>
+      <div class="container">
+        <!-- <div class="logo"> <a href="/index.html"><img src="static/images/logo1.png" alt="image"/></a> </div> -->
+        <div class="navbar-header">
+
+          <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="nav navbar-nav">
+            <!--<li class="menu-item-has-children"><a href="#">User Panel</a> <span class="arrow"></span>
+            <ul class="sub-menu">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="dashboard-my-listings.html">My Listings</a></li>
+            <li><a href="dashboard-reviews.html">Reviews</a></li>
+            <li><a href="dashboard-bookmarks.html">Bookmarks</a></li>
+            <li><a href="blog-single.html">Add Listing</a></li>
+            <li><a href="dashboard-my-profile.html">My Profile</a></li>
+          </ul>
+        </li>-->
+        <li ><a href="#">Username</a> <span class="arrow"></span>
+          <ul class="sub-menu">
+            <li><a href="/myride">My Rides</a></li>
+            <li><a href="#">My Profile</a></li>
+            <li><a href="#">Sign Out</a></li>
+          </ul>
+        </li>
+
+        <!--<li><a href="signin.html">Sign In</a></li>-->
+      </ul>
+      <div class="submit_listing">
+        <a href="/book" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->Search a Ride</a>
+      </div>
+    </div>
+  </div>
+</nav>
+</header>
+
+
+<div class="container">
+  <div class="intro_text white-text div_zindex">
+    <h1>Welcome to TravelMate</h1>
+    <h4>Ride Sharing Application</h4>
+    {% csrf_token %}
+
+  </div>
+  <div class="ride details">
+
+
+    <div class="togglebuttons", style="padding-bottom:10px;">
+      <button type="button" class="btn btn-secondary" disabled>All Rides</button>
+      <a href="upcoming" class="btn btn-primary offset-3">Upcoming Rides</a>
+      <a href='previous'
+       class="btn btn-primary offset-4"> Past Rides</a>
+    </div>
+
+    <!-- <div class="card bg-light col-md-2">
+
+    </div> -->
+    <div class="card bg-light mb-4">
+      <div class="card-block">
+        <div class="container">
+          <img class="col-md-2" src="{% static "images/img_avatar.png" %}" alt="avatar" style="width:200px;"/>
+          <div class="card-body"><strong>Name:</strong>Loki</div>
+          <div class="card-body">
+            <strong>Start Date:</strong> 07/04/2017
+            <a href="rate" class="float-right btn btn-info btn-lg">Rate</a>
+          </div>
+          <div class="card-body"><strong>End Date:</strong> 09/12/2017</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card bg-light mb-4">
+      <div class="card-block">
+        <div class="container">
+          <img class="col-md-2" src="{% static "images/img_avatar.png" %}" alt="avatar" style="width:200px;"/>
+          <div class="card-body"><strong>Name:</strong>Thor</div>
+          <div class="card-body">
+            <strong>Start Date:</strong> 09/17/2017
+            <a href="rate" class="float-right btn btn-info btn-lg">Rate</a>
+          </div>
+          <div class="card-body"><strong>End Date:</strong> 09/21/2017</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card bg-light mb-4">
+      <div class="card-block">
+        <div class="container">
+          <img class="col-md-2" src="{% static "images/img_avatar.png" %}" alt="avatar" style="width:200px;"/>
+          <div class="card-body"><strong>Name:</strong>Peter Parker</div>
+          <div class="card-body">
+            <strong>Start Date:</strong> 09/25/2017
+            <a href="rate" class="float-right btn btn-info btn-lg">Rate</a>
+          </div>
+          <div class="card-body"><strong>End Date:</strong> 09/25/2017</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card bg-light mb-4">
+      <div class="card-block">
+        <div class="container">
+          <img class="col-md-2" src="{% static "images/img_avatar.png" %}" alt="avatar" style="width:200px;"/>
+          <div class="card-body"><strong>Name:</strong>Star Lord</div>
+          <div class="card-body">
+            <strong>Start Date:</strong>  09/26/2017
+            <a href="rate" class="float-right btn btn-info btn-lg">Rate</a>
+          </div>
+          <div class="card-body"><strong>End Date:</strong> 10/03/2017</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card bg-light mb-4">
+      <div class="card-block">
+        <div class="container">
+          <img class="col-md-2" src="{% static "images/img_avatar.png" %}" alt="avatar" style="width:200px;"/>
+          <div class="card-body"><strong>Name:</strong>Mary Jane Watson</div>
+          <div class="card-body">
+            <strong>Start Date:</strong> 10/10/2017
+            <a href="rate" class="float-right btn btn-info btn-lg">Rate</a>
+          </div>
+          <div class="card-body"><strong>End Date:</strong> 12/31/2017</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card bg-light mb-4">
+      <div class="card-block">
+        <div class="container">
+            <img class="col-md-2" src="{% static "images/img_avatar.png" %}" alt="avatar" style="width:200px;"/>
+            <div class="card-body"><strong>Name:</strong>Aly</div>
+            <div class="card-body">
+              <strong>Start Date:</strong> 11/11/2017
+              <a href="rate" class="float-right btn btn-info btn-lg">Rate</a>
+            </div>
+            <div class="card-body"><strong>End Date:</strong> 12/01/2018</div>
+        </div>
+        </div>
+      </div>
+
+        <div class="card bg-light mb-3">
+          <div class="card-block">
+            <div class="container">
+                <img class="col-md-2" src="{% static "images/img_avatar.png" %}" alt="avatar" style="width:200px;"/>
+                <div class="card-body">
+                  <strong>Name:</strong> Steve</div>
+
+                <div class="card-body"><strong>Start Date:</strong> 02/03/2018</div>
+                <div class="card-body"><strong>End Date:</strong> 11/04/2018</div>
+            </div>
+
+            </div>
+          </div>
+
+
+          <div class="card bg-light mb-3">
+            <div class="card-block">
+              <div class="container">
+                  <img class="col-md-2" src="{% static "images/img_avatar.png" %}" alt="avatar" style="width:200px;"/>
+                  <div class="card-body">
+                    <strong>Name:</strong> Dr. Banner</div>
+
+                  <div class="card-body"><strong>Start Date:</strong> 13/04/2018</div>
+
+              </div>
+
+              </div>
+            </div>
+
+
+          <div class="card bg-light mb-3">
+            <div class="card-block">
+              <div class="container">
+                  <img class="col-md-2" src="{% static "images/img_avatar.png" %}" alt="avatar" style="width:200px;"/>
+                  <div class="card-body">
+                    <strong>Name:</strong> Robert</div>
+
+                  <div class="card-body"><strong>Start Date:</strong> 26/04/2018</div>
+                  <div class="card-body"><strong>End Date:</strong> 11/05/2018</div>
+              </div>
+
+              </div>
+            </div>
+
+
+            <div class="card bg-light mb-3">
+              <div class="card-block">
+                <div class="container">
+                    <img class="col-md-2" src="{% static "images/img_avatar.png" %}" alt="avatar" style="width:200px;"/>
+                    <div class="card-body">
+                      <strong>Name:</strong>Natasha</div>
+
+                    <div class="card-body"><strong>Start Date:</strong> 13/05/2018</div>
+
+                </div>
+
+                </div>
+              </div>
+
+
+    </div>
+  </div>
+
+</body>
+</html>

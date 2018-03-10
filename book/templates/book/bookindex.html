@@ -1,0 +1,240 @@
+<!--<h1>Hello Index page</h1>
+
+
+<a href ='/book'> Book a ride </a> <br>
+<a href ='/offer'> Offer a ride </a><br>
+<a href ='/myride'> My Rides </a>-->
+
+{%load staticfiles %}
+<!--Bootstrap -->
+<link rel="stylesheet" href="static/css/bootstrap.min.css" type="text/css">
+<!--Custome Style -->
+<link rel="stylesheet" href="static/css/style.css" type="text/css">
+<!--OWL Carousel slider-->
+<link rel="stylesheet" href="static/css/owl.carousel.css" type="text/css">
+<!--FontAwesome Font Style -->
+<link href="static/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- Google-Font-->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,800" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<header id="header">
+    <nav class="navbar navbar-default navbar-fixed-top" data-spy="affix" data-offset-top="10">
+        <div class="container">
+          <div class="navbar-header">
+            <div class="logo"> <a href="{% url 'travel:index' %}"><img src="{%static 'images/logo1.png'%}" alt="image"/></a> </div>
+            <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="navigation">
+            <ul class="nav navbar-nav">
+              <!--<li class="menu-item-has-children"><a href="#">User Panel</a> <span class="arrow"></span>
+              	 <ul class="sub-menu">
+                	<li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="dashboard-my-listings.html">My Listings</a></li>
+                    <li><a href="dashboard-reviews.html">Reviews</a></li>
+                    <li><a href="dashboard-bookmarks.html">Bookmarks</a></li>
+                    <li><a href="blog-single.html">Add Listing</a></li>
+                    <li><a href="dashboard-my-profile.html">My Profile</a></li>
+                </ul>
+              </li>-->
+                <li ><a href="#">Username</a> <span class="arrow"></span>
+              	 <ul class="sub-menu">
+                	<li><a href="/myride">My Rides</a></li>
+                    <li><a href="#">My Profile</a></li>
+
+                    <li><a href="#">Sign Out</a></li>
+                </ul>
+              </li>
+
+              <!--<li><a href="signin.html">Sign In</a></li>-->
+            </ul>
+            <div class="submit_listing">
+	            <a href="/offer" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->+ Offer a Ride</a>
+            </div>
+          </div>
+        </div>
+    </nav>
+</header>
+<!--<h1>Book index</h1>-->
+<link rel="stylesheet" href="{% static 'css/style.css' %}" type = 'text/css'/>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+
+<!--<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header"/>
+  </div>
+</nav>-->
+
+<section id="banner" class="parallex-bg section-padding">
+<div class="container">
+    	<div class="intro_text white-text div_zindex">
+    		<h1>Welcome to TravelMate</h1>
+	        <h4>Ride Sharing Application</h4>
+            <div class="search_form">
+            	<form action="{% url 'book:searchres' %}" method="post">
+                    {% csrf_token %}
+                	<!--<div class="form-group select">
+                   		<select class="form-control">
+                	    	<option>Where are you?</option>
+            	            <option>Northeastern University</option>
+                            <option>Downtown</option>
+                            <option></option>
+        	                <option>Health & Fitness</option>
+    	                    <option>Beauty & Spas</option>
+                            <option>Hotels & Travel</option>
+                            <option>Automotive</option>
+	                    </select>
+                    </div>-->
+                  <div class="form-group">
+                   		<input type="text" id = "fromlocation" class="form-control" placeholder="Leaving From">
+                    </div>
+                    <div class="form-group">
+                   		<input type="text" id = "tolocation" class="form-control" placeholder="Going To">
+                    </div>
+                    <div class="form-group">
+                   		<input type="date" id = "startdate" class="form-control" placeholder="Date">
+                    </div>
+                    <div class="form-group search_btn">
+                    	<input type="submit" value="Find a Ride" class="btn btn-block">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="dark-overlay"></div>
+
+</section>
+
+
+
+<!-- Popular-Cities/Towns -->
+<section id="popular_cities" class="section-padding">
+	<div class="container">
+    	<div class="section-header text-center">
+        	<h2>Most Popular Destinations/Towns</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+        </div>
+
+        <div class="row">
+        	<div class="col-sm-6 col-md-3">
+            	<div class="cities_list">
+                    <div class="city_listings_info">
+                    	<h4>New York City</h4>
+                        <div class="listing_number"><span>6 Listings</span> </div>
+                    </div>
+                    <a href="#" class="overlay_link"></a>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-3">
+            	<div class="cities_list chicago">
+                    <div class="city_listings_info">
+                    	<h4>Chicago</h4>
+                        <div class="listing_number"><span>6 Listings</span> </div>
+                    </div>
+                    <a href="#" class="overlay_link"></a>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-3">
+            	<div class="cities_list angeles">
+                    <div class="city_listings_info">
+                    	<h4>Los Angeles</h4>
+                        <div class="listing_number"><span>6 Listings</span> </div>
+                    </div>
+                    <a href="#" class="overlay_link"></a>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-3">
+            	<div class="cities_list francisco">
+                    <div class="city_listings_info">
+                    	<h4>San Francisco</h4>
+                        <div class="listing_number"><span>6 Listings</span> </div>
+                    </div>
+                    <a href="#" class="overlay_link"></a>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-3">
+            	<div class="cities_list seattle">
+                    <div class="city_listings_info">
+                    	<h4>Seattle</h4>
+                        <div class="listing_number"><span>6 Listings</span> </div>
+                    </div>
+                    <a href="#" class="overlay_link"></a>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-3">
+            	<div class="cities_list washington">
+                    <div class="city_listings_info">
+                    	<h4>Washington, D.C.</h4>
+                        <div class="listing_number"><span>6 Listings</span> </div>
+                    </div>
+                    <a href="#" class="overlay_link"></a>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-3">
+            	<div class="cities_list orlando">
+                    <div class="city_listings_info">
+                    	<h4>Orlando</h4>
+                        <div class="listing_number"><span>6 Listings</span> </div>
+                    </div>
+                    <a href="#" class="overlay_link"></a>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-3">
+            	<div class="cities_list miami">
+                    <div class="city_listings_info">
+                    	<h4>Miami</h4>
+                        <div class="listing_number"><span>6 Listings</span> </div>
+                    </div>
+                    <a href="#" class="overlay_link"></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+        	<a href="#" class="btn">View More Cities / Towns</a>
+        </div>
+    </div>
+</section>
+<section id="about_info" class="section-padding">
+	<div class="container">
+    	<div class="row">
+        	<div class="col-md-5 col-md-offset-7">
+            	<div class="white_box">
+                    <h3>Save time and hassle. Let us find Quick and Easy</h3>
+                    <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure.</p>
+                    <a href="#" class="btn">Start Now !</a>
+                </div>
+            </div>
+        </div>
+
+	</div>
+</section>
+
+
+
+
+
+
+
+
+<!--<form action = "{% url 'book:searchres' %}" method = "post">
+  {% csrf_token %}
+  <label for = "fromlocation"> From Location </label>
+  <input type = "textfield" id = "fromlocation" name = "fromlocation">
+  <label for = "tolocation"> To Location </label>
+  <input type = "textfield" id = "tolocation" name = "tolocation">
+  <label for = "startdate"> Start Date </label>
+  <input type = "textfield" id = "startdate" name = "startdate">
+  <input type = "submit" value = "Find a ride">
+</form>-->
