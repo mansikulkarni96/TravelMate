@@ -15,6 +15,14 @@
 <!--FontAwesome Font Style -->
 <link href="static/css/font-awesome.min.css" rel="stylesheet">
 
+<!--Date Picker-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"> </script>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/blitzer/jquery-ui.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
+    </script>
+
+
 <!-- Google-Font-->
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,800" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
@@ -47,14 +55,14 @@
                 	<li><a href="/myride">My Rides</a></li>
                     <li><a href="#">My Profile</a></li>
 
-                    <li><a href="#">Sign Out</a></li>
+                    <li><a href="/index">Sign Out</a></li>
                 </ul>
               </li>
 
               <!--<li><a href="signin.html">Sign In</a></li>-->
             </ul>
             <div class="submit_listing">
-	            <a href="/offer" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->+ Offer a Ride</a>
+	            <a href="/offer" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->+ Offer a ride</a>
             </div>
           </div>
         </div>
@@ -97,10 +105,11 @@
                    		<input type="text" id = "tolocation" class="form-control" placeholder="Going To">
                     </div>
                     <div class="form-group">
-                   		<input type="date" id = "startdate" class="form-control" placeholder="Date">
+                        <p> <input  id="departure"  style="color:Black" placeholder="mm/dd/yyyy"></p>
+                   		<!--<input type="date" id = "startdate" class="form-control" placeholder="Date">-->
                     </div>
                     <div class="form-group search_btn">
-                    	<input type="submit" value="Find a Ride" class="btn btn-block">
+                    	<input type="submit" value="Find a ride" class="btn btn-block">
                     </div>
                 </form>
             </div>
@@ -112,7 +121,7 @@
 
 
 
-<!-- Popular-Cities/Towns -->
+<!-- Popular-Cities/Towns
 <section id="popular_cities" class="section-padding">
 	<div class="container">
     	<div class="section-header text-center">
@@ -124,7 +133,7 @@
         	<div class="col-sm-6 col-md-3">
             	<div class="cities_list">
                     <div class="city_listings_info">
-                    	<h4>New York City</h4>
+                    	<h4>Andover</h4>
                         <div class="listing_number"><span>6 Listings</span> </div>
                     </div>
                     <a href="#" class="overlay_link"></a>
@@ -205,7 +214,7 @@
         	<a href="#" class="btn">View More Cities / Towns</a>
         </div>
     </div>
-</section>
+</section>-->
 <section id="about_info" class="section-padding">
 	<div class="container">
     	<div class="row">
@@ -213,7 +222,7 @@
             	<div class="white_box">
                     <h3>Save time and hassle. Let us find Quick and Easy</h3>
                     <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure.</p>
-                    <a href="#" class="btn">Start Now !</a>
+                    <!--<a href="#" class="btn">Start Now !</a>-->
                 </div>
             </div>
         </div>
@@ -224,7 +233,27 @@
 
 
 
+<script>
+    $(function(){
 
+      $("#departure").datepicker({
+        showAnim: "fadeIn",
+        changeYear: true,
+        numberOfMonths: 1,
+        dateFormat: "mm/dd/yy",
+        minDate: +1,
+        maxDate: "+12M +10D",
+        onClose: function(selectedDate){
+          $("#return").datepicker("option", "minDate", selectedDate)
+        }
+        ,
+        showWeek: true
+      });
+
+
+    });
+
+  </script>
 
 
 
@@ -238,3 +267,5 @@
   <input type = "textfield" id = "startdate" name = "startdate">
   <input type = "submit" value = "Find a ride">
 </form>-->
+
+
