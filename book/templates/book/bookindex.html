@@ -100,7 +100,7 @@
 
 
     <!-- IMP PART OF PAGE -->
-<!-- 
+<!--
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
@@ -110,13 +110,13 @@
     <form action="{% url 'book:searchres' %}" method="post">
       {% csrf_token %}
       <div class="form-group">
-        <input type="text" id = "fromlocation" class="form-control" placeholder="Leaving From">
+        <input type="text" name="fromlocation" id = "fromlocation" class="form-control" placeholder="Leaving From">
       </div>
       <div class="form-group">
-        <input type="text" id = "tolocation" class="form-control" placeholder="Going To">
+        <input type="text" name="tolocation" id = "tolocation" class="form-control" placeholder="Going To">
       </div>
       <div class="form-group">
-        <p> <input  id="departure"  style="color:Black" placeholder="mm/dd/yyyy"></p>
+        <p> <input  name="departure" id="departure"  style="color:Black" placeholder="mm/dd/yyyy"></p>
         <!--<input type="date" id = "startdate" class="form-control" placeholder="Date">-->
       </div>
       <div class="form-group search_btn">

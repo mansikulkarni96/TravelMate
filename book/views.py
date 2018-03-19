@@ -12,11 +12,19 @@ def index(request):
     return render(request,'book/bookindex.html')
 
 def searchres(request):
-    all_reservations = Reservation.objects.all()
+    # print(request.POST)
+    fromlocation = request.POST.get('fromlocation')
+    tolocation = request.POST.get('tolocation')
+    departure = request.POST.get('departure')
+    all_enlists = Enlist.objects.filter(from_loc=fromlocation,to_loc=tolocation)
     context = {
-        'all_reservations': all_reservations,
+        'all_enlists': all_enlists,
+        'fromlocation': fromlocation,
+        'tolocation': tolocation,
+        'departure': departure
     }
-    return render(request,'book/search.html', context)
+    print(departure)
+    return render(request,'book/search.html',context)
 
 # def get(self, request):
 #     form = IndexForm()

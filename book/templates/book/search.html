@@ -75,17 +75,17 @@
                     <div class="search_form">
 
                             <div class="form-group">
-                                <input type="text" id="fromlocation" class="form-control" placeholder="Marino Gym"
+                                <input type="text" id="fromlocation" class="form-control" placeholder={{fromlocation}}
                                        disabled="true">
                             </div>
                             <p style="float: left">&nbsp;</p>
                             <div class="form-group">
-                                <input type="text" id="tolocation" class="form-control" placeholder="Andover"
+                                <input type="text" id="tolocation" class="form-control" placeholder={{tolocation}}
                                        disabled="true">
                             </div>
                             <p style="float: left">&nbsp;</p>
                             <div class="form-group">
-                                <input type="date" id="startdate" class="form-control" value="2018-06-01"
+                                <input type="text" id="startdate" class="form-control" value={{departure}}
                                        disabled="true">
                             </div>
                             <p style="float: left">&nbsp;</p>
@@ -98,10 +98,12 @@
                 <h4>Search Results</h4>
 
                 <ul>
-                  {% for reservation in all_reservations %}
+                  {% for enlist in all_enlists %}
                   <li>
-                    <a href="#">{{reservation.to_loc}}</a>
+                    <a href="#">{{enlist.from_loc}}</a>
+                    <a href="#">{{enlist.to_loc}}</a>
                   </li>
+
                   {% endfor %}
                 </ul>
 
