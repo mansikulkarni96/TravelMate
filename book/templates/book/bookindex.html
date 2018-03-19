@@ -100,6 +100,13 @@
 
 
     <!-- IMP PART OF PAGE -->
+<!-- 
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit"> Submit</button>
+    </form> -->
+
     <form action="{% url 'book:searchres' %}" method="post">
       {% csrf_token %}
       <div class="form-group">
@@ -113,7 +120,7 @@
         <!--<input type="date" id = "startdate" class="form-control" placeholder="Date">-->
       </div>
       <div class="form-group search_btn">
-        <button type="submit" class="btn btn-block">Find a Ride</button>
+        <input type="submit" value="Find a Ride"class="btn btn-block"/>
       </div>
     </form>
   </div>
