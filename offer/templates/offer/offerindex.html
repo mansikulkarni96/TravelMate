@@ -13,9 +13,27 @@
 
 <!--Date Picker-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"> </script>
-
+<link rel="stylesheet" href="https://jonthornton.github.io/jquery-timepicker/jquery.timepicker.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/blitzer/jquery-ui.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
+    </script>
+    <script src="https://jonthornton.github.io/jquery-timepicker/jquery.timepicker.js">
+    </script>
+
+    <script>
+    (function($) {
+    $(function() {
+        $("input.timepicker").timepicker();
+    });
+    })(jQuery);
+    </script>
+
+    <script>
+    (function($) {
+    $(function() {
+        $("input.timepicker1").timepicker();
+    });
+    })(jQuery);
     </script>
 
 
@@ -94,11 +112,11 @@
 
             <div class="idealforms add-ride" style="text-align: center;">
                 <h5 style="color:#000;padding-left:1em;padding-top:1em"></h5>
-                <input type="text" id="fromlocation1" class="form-control" placeholder="Leaving From">
+                <input type="text" id="fromlocation"  class="form-control"  placeholder="Leaving From">
             </div>
             <div class="idealforms add-ride">
                 <h5 style="color:#000;padding-left:1em;padding-top:1em"></h5>
-                <input type="text" id="tolocation1" class="form-control" placeholder="Going To">
+                <input type="text" id="tolocation" class="form-control" placeholder="Going To">
             </div>
             <div style="width: 100%; display: table;">
                 <div style="display: table-row">
@@ -106,16 +124,24 @@
                         <h5 style="color:#000;padding-left:1em;padding-top:1em">Start Date</h5>
                         <p> <input  id="departure"  style="color:Black"></p>
                     </div>
+                     <div class="idealforms add-ride" style="width:  25%; display: table-cell;">
+                        <h5 style="color:#000;padding-left:1em;padding-top:1em">Start Time</h5>
+                        <p><form> <input  type="text" class="timepicker" name="time/"  style="color:Black; padding-right:1em";></form></p>
 
-
-                     <div class="idealforms add-ride" style="width:  30%; display: table-cell;">
+                    </div>
+                    <!-- <div class="idealforms add-ride" style="width:  30%; display: table-cell;">
                         <h5 style="color:#000;padding-left:1em;padding-top:1em">Start Time</h5>
                         <p> <input  id="timeFrom"  style="color:Black"></p>
+                    </div> -->
+                    <div style="width: 10%"></div>
+                    <div class="idealforms add-ride" style="width:  25%; display: table-cell;">
+                        <h5 style="color:#000;padding-left:1em;padding-top:1em">Return Time</h5>
+                        <p> <form> <input  type="text" class="timepicker1" name="time1/"  style="color:Black";></form></p>
                     </div>
-                    <div class="idealforms add-ride" style="width:  30%; display: table-cell;">
+                    <!--<div class="idealforms add-ride" style="width:  30%; display: table-cell;">
                         <h5 style="color:#000;padding-left:1em;padding-top:1em">Return Time</h5>
                         <p> <input  id="timeTo"  style="color:Black"></p>
-                    </div>
+                    </div>-->
 
 
 
@@ -244,6 +270,24 @@ window.onload = function() {
   </script>
 
 
+  <script>
+  $(function(){
+  $("#fromlocation").autocomplete({
+  source: ["Boston","Chicago","California","London","San Francisco","London",
+      "Northeastern University", "Burlington", "Andover", "Paris", "Paris", "Paris", "Madrid", "Madrid", "Madrid",
+      "Madrid", "Madrid"]
+  });
+  });
+   </script>
+<script>
+  $(function(){
+  $("#tolocation").autocomplete({
+  source: ["Boston","Chicago","California","London","San Francisco","London",
+      "Northeastern University", "Burlington", "Andover", "Paris", "Paris", "Paris", "Madrid", "Madrid", "Madrid",
+      "Madrid", "Madrid"]
+  });
+  });
+   </script>
 
 
 <!--<form action = "{% url 'offer:offerdetails' %}" method = "post">
