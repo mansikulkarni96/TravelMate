@@ -11,3 +11,7 @@ class Reservation(models.Model):
     to_loc = models.CharField(max_length = 250)
     start_date = models.DateField()
     status = models.BooleanField(default = False)
+
+
+    def __str__(self):
+        return self.from_loc + '-' + self.to_loc

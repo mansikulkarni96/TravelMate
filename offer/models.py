@@ -14,3 +14,6 @@ class Enlist(models.Model):
     start_time = models.TimeField()
     return_time = models.TimeField()
     start_date = models.DateField()
+
+    def __str__(self):
+        return self.from_loc + '-' + self.car_model

@@ -97,6 +97,14 @@
                 </div>
                 <h4>Search Results</h4>
 
+                <ul>
+                  {% for reservation in all_reservations %}
+                  <li>
+                    <a href="#">{{reservation.to_loc}}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+
 
                 <div class="accordionItem open">
                     <h4 class="accordionItemHeading">1 Hour Away</h4>
