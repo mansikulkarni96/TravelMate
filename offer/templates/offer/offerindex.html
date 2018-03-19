@@ -1,14 +1,6 @@
 {%load staticfiles %}
 
 
-<!--<h1>Hello Index page</h1>
-
-
-<a href ='/book'> Book a ride </a> <br>
-<a href ='/offer'> Offer a ride </a><br>
-<a href ='/myride'> My Rides </a>-->
-
-{%load staticfiles %}
 <!--Bootstrap -->
 <link rel="stylesheet" href="static/css/bootstrap.min.css" type="text/css">
 <!--Custome Style -->
@@ -17,7 +9,6 @@
 <link rel="stylesheet" href="static/css/owl.carousel.css" type="text/css">
 <!--FontAwesome Font Style -->
 <link href="static/css/font-awesome.min.css" rel="stylesheet">
-
 
 
 <!--Date Picker-->
@@ -35,117 +26,200 @@
 <header id="header">
     <nav class="navbar navbar-default navbar-fixed-top" data-spy="affix" data-offset-top="10">
         <div class="container">
-          <div class="navbar-header">
-            <div class="logo"> <a href="{% url 'travel:index' %}"><img src="{%static 'images/logo1.png'%}" alt="image"/></a> </div>
-            <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-          </div>
-          <div class="collapse navbar-collapse" id="navigation">
-            <ul class="nav navbar-nav">
-              <!--<li class="menu-item-has-children"><a href="#">User Panel</a> <span class="arrow"></span>
-              	 <ul class="sub-menu">
-                	<li><a href="dashboard.html">Dashboard</a></li>
+            <div class="navbar-header">
+                <div class="logo"><a href="{% url 'travel:index' %}"><img src="{%static 'images/logo1.png'%}"
+                                                                          alt="image"/></a></div>
+                <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse"
+                        class="navbar-toggle collapsed" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navigation">
+                <ul class="nav navbar-nav">
+                    <!--<li class="menu-item-has-children"><a href="#">User Panel</a> <span class="arrow"></span>
+                    <ul class="sub-menu">
+                    <li><a href="dashboard.html">Dashboard</a></li>
                     <li><a href="dashboard-my-listings.html">My Listings</a></li>
                     <li><a href="dashboard-reviews.html">Reviews</a></li>
                     <li><a href="dashboard-bookmarks.html">Bookmarks</a></li>
                     <li><a href="blog-single.html">Add Listing</a></li>
                     <li><a href="dashboard-my-profile.html">My Profile</a></li>
+                  </ul>
+                </li>-->
+                    <li><a href="#">Username</a> <span class="arrow"></span>
+                        <ul class="sub-menu">
+                            <li><a href="/myride">My Rides</a></li>
+                            <li><a href="#">My Profile</a></li>
+                            <li><a href="{% url 'travel:index' %}">Sign Out</a></li>
+                        </ul>
+                    </li>
+
+                    <!--<li><a href="signin.html">Sign In</a></li>-->
                 </ul>
-              </li>-->
-                <li ><a href="#">Username</a> <span class="arrow"></span>
-              	 <ul class="sub-menu">
-                	<li><a href="/myride">My Rides</a></li>
-                    <li><a href="#">My Profile</a></li>
-
-                    <li><a href="/index">Sign Out</a></li>
-                </ul>
-              </li>
-
-              <!--<li><a href="signin.html">Sign In</a></li>-->
-            </ul>
-            <div class="submit_listing">
-	            <a href="/offer" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->+ Offer a ride</a>
-            </div>
-          </div>
-        </div>
-    </nav>
-</header>
-<!--<h1>Book index</h1>-->
-<link rel="stylesheet" href="{% static 'css/style.css' %}" type = 'text/css'/>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-
-<!--<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header"/>
-  </div>
-</nav>-->
-
-<section id="banner" class="parallex-bg section-padding">
-<div class="container">
-    	<div class="intro_text white-text div_zindex">
-    		<h1>Welcome to TravelMate</h1>
-	        <h4>Ride Sharing Application</h4>
-            <div class="search_form">
-            	<form action="{% url 'book:searchres' %}" method="post">
-                    {% csrf_token %}
-                	<!--<div class="form-group select">
-                   		<select class="form-control">
-                	    	<option>Where are you?</option>
-            	            <option>Northeastern University</option>
-                            <option>Downtown</option>
-                            <option></option>
-        	                <option>Health & Fitness</option>
-    	                    <option>Beauty & Spas</option>
-                            <option>Hotels & Travel</option>
-                            <option>Automotive</option>
-	                    </select>
-                    </div>-->
-                  <div class="form-group">
-                   		<input type="text" id = "fromlocation" class="ui-autocomplete-input" placeholder="Leaving From">
-                    </div>
-                    <div class="form-group">
-                   		<input type="text" id = "tolocation" class="form-control" placeholder="Going To">
-                    </div>
-                    <div class="form-group">
-                        <p> <input  id="departure"  style="color:Black" placeholder="mm/dd/yyyy"></p>
-                   		<!--<input type="date" id = "startdate" class="form-control" placeholder="Date">-->
-                    </div>
-                    <div class="form-group search_btn">
-                    	<input type="submit" value="Find a ride" class="btn btn-block">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="dark-overlay"></div>
-
-</section>
-
-
-
-
-<section id="about_info" class="section-padding">
-	<div class="container">
-    	<div class="row">
-        	<div class="col-md-5 col-md-offset-7">
-            	<div class="white_box">
-                    <h3>Save time and hassle. Let us find Quick and Easy</h3>
-                    <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure.</p>
-                    <!--<a href="#" class="btn">Start Now !</a>-->
+                <div class="submit_listing">
+                    <a href="/book" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->Search a ride</a>
                 </div>
             </div>
         </div>
+    </nav>
+</header>
 
-	</div>
-</section>
+<!--<h1>Book index</h1>-->
+<link rel="stylesheet" href="{% static 'css/style.css' %}" type='text/css'/>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+
+
+<div class="container">
+    <div class="intro_text white-text div_zindex">
+
+        <div class="search_form" style="padding-top:8%">
+
+            <!--<div class="form-group select">
+            <select class="form-control">
+            <option>Where are you?</option>
+            <option>Northeastern University</option>
+            <option>Downtown</option>
+            <option></option>
+            <option>Health & Fitness</option>
+            <option>Beauty & Spas</option>
+            <option>Hotels & Travel</option>
+            <option>Automotive</option>
+          </select>
+        </div>-->
+            <h3 style="color:#000;text-align: center;">Offer your Ride</h3>
+
+
+            <div class="idealforms add-ride" style="text-align: center;">
+                <h5 style="color:#000;padding-left:1em;padding-top:1em"></h5>
+                <input type="text" id="fromlocation1" class="form-control" placeholder="Leaving From">
+            </div>
+            <div class="idealforms add-ride">
+                <h5 style="color:#000;padding-left:1em;padding-top:1em"></h5>
+                <input type="text" id="tolocation1" class="form-control" placeholder="Going To">
+            </div>
+            <div style="width: 100%; display: table;">
+                <div style="display: table-row">
+                    <div class="idealforms add-ride" style="width:  40%; display: table-cell;">
+                        <h5 style="color:#000;padding-left:1em;padding-top:1em">Start Date</h5>
+                        <p> <input  id="departure"  style="color:Black"></p>
+                    </div>
+
+
+                     <div class="idealforms add-ride" style="width:  30%; display: table-cell;">
+                        <h5 style="color:#000;padding-left:1em;padding-top:1em">Start Time</h5>
+                        <p> <input  id="timeFrom"  style="color:Black"></p>
+                    </div>
+                    <div class="idealforms add-ride" style="width:  30%; display: table-cell;">
+                        <h5 style="color:#000;padding-left:1em;padding-top:1em">Return Time</h5>
+                        <p> <input  id="timeTo"  style="color:Black"></p>
+                    </div>
+
+
+
+                    <!--<div class="idealforms add-ride" style="width: 45%; display: table-cell;">
+                        <h5 style="color:#000;padding-left:1em;padding-top:1em">End Date</h5>
+                        <input type="date" id="enddate1" class="form-control" placeholder="Date">
+                    </div>-->
+                </div>
+            </div>
+
+
+            <div style="width: 100%; display: table;">
+                <div class="idealforms add-ride" style="width: 45%; display: table-cell;">
+                    <h5 style="color:#000;padding-left:1em;padding-top:1em">Car Model</h5>
+                    <select name="cars" class="form-control">
+                        <option value="1">Volkswagen Golf</option>
+                        <option value="2">Ford Fiesta</option>
+                        <option value="3">Toyota Corolla</option>
+                        <option value="4">BMW M4</option>
+                        <option value="5">Ford Escape</option>
+                        <option value="6">Subaru</option>
+                    </select>
+                </div>
+                <div style="width=10%"></div>
+
+                <div class="idealforms add-ride" style="width: 45%; display: table-cell;">
+                    <h5 style="color:#000;padding-left:1em;padding-top:1em">License Plate No</h5>
+                    <input type="text" id="licensenumber" class="form-control">
+                </div>
+            </div>
+
+
+            <div style="width: 100%; display: table;">
+                <div class="idealforms add-ride" style="width:  45%; display: table-cell;">
+                    <h5 style="color:#000;padding-left:1em;padding-top:1em">No of Seats</h5>
+                    <select name="cars" class="form-control">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+
+                <div style="width=10%"></div>
+                <div class="idealforms add-ride" style="width:  45%; display: table-cell;">
+                    <h5 style="color:#000;padding-left:1em;padding-top:1em">Fare</h5>
+                    <input type="number" id="fare" min="0.0" step="1" class="form-control" placeholder="Enter Fare">
+                </div>
+            </div>
+
+            <!-- <form action="{% url 'offer:offerdetails' %}" method="post" onsubmit="setFormSubmitting()">
+                 {% csrf_token %}
+
+                 <div class="idealforms add-ride">
+                     <h5 style="color:#000; padding-left:1em; padding-top:1em"></h5>
+                     <input type="submit" value="Post a Ride" class="btn btn-group">
+                 </div>
+
+             </form>-->
+
+
+            <form action="{% url 'offer:offerdetails' %}" method="post" onsubmit="setFormSubmitting()">
+                {% csrf_token %}
+                <h5 style="color:#000; padding-left:1em; padding-top:1em"></h5>
+
+                <input type="submit" value="Post a Ride" class="btn btn-block">
+
+
+            </form>
+            <a href="/" onsubmit="setFormSubmitting()">
+                <input  value="Cancel"  class="btn btn-block"
+                       style="background:Red; padding: 1.2em "></a>
+
+            <h5 style="color:#000; padding-left:1em; padding-top:1em"></h5>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    var formSubmitting = false;
+var setFormSubmitting = function() { formSubmitting = true; };
+
+window.onload = function() {
+    window.addEventListener("beforeunload", function (e) {
+        if (formSubmitting) {
+            return undefined;
+        }
+
+        var confirmationMessage = 'It looks like you have been editing something. '
+                                + 'If you leave before saving, your changes will be lost.';
+
+        (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+        return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
+    });
+};
 
 
 
 
+</script>
 <script>
     $(function(){
 
@@ -154,6 +228,7 @@
         changeYear: true,
         numberOfMonths: 1,
         dateFormat: "mm/dd/yy",
+
         minDate: +1,
         maxDate: "+12M +10D",
         onClose: function(selectedDate){
@@ -168,20 +243,20 @@
 
   </script>
 
-  <script>
-
-
-  $(function(){
-  $("#fromlocation").autocomplete({
-  source: ["Boston","Chicago","California","London","San Francisco","London",
-      "Northeastern University", "Burlington", "Andover", "Paris", "Paris", "Paris", "Madrid", "Madrid", "Madrid",
-      "Madrid", "Madrid"]
-  });
-  });
-
-
-   </script>
 
 
 
-
+<!--<form action = "{% url 'offer:offerdetails' %}" method = "post">
+{% csrf_token %}
+<input type = "textfield" id = "fromlocation" name = "fromlocation">
+<label for = "fromlocation"> From Location </label>
+<input type = "textfield" id = "tolocation" name = "tolocation">
+<label for = "tolocation"> To Location </label>
+<input type = "textfield" id = "startdate" name = "startdate">
+<label for = "startdate"> Start Date </label>
+<input type = "textfield" id = "numberofpassengers" name = "numberofpassengers">
+<label for = "numberofpassengers"> Number of passengers </label>
+<input type = "textfield" id = "fare" name = "fare">
+<label for = "fare"> Fare </label>
+<input type = "submit" value = "Post">
+</form>-->
