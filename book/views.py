@@ -23,7 +23,7 @@ def searchres(request):
         'tolocation': tolocation,
         'departure': departure
     }
-    print(departure)
+    #print(departure)
     return render(request,'book/search.html',context)
 
 # def get(self, request):

@@ -90,7 +90,7 @@
                             </div>
                             <p style="float: left">&nbsp;</p>
                             <div class="form-group search_btn">
-                                <a href="/book"> <input type="submit" value="Modify Search" class="btn btn-block"></a>
+                                <a href="/book"> <input type="submit" value="Modify Search" class="btn btn-block" style="height:60px; margin-left:10px;"></a>
                             </div>
 
                     </div>
@@ -100,8 +100,11 @@
                 <ul>
                   {% for enlist in all_enlists %}
                   <li>
-                    <a href="#">{{enlist.from_loc}}</a>
-                    <a href="#">{{enlist.to_loc}}</a>
+                    {{enlist.from_loc}}
+                    {{enlist.to_loc}}
+                    {{enlist.uid.fname}}
+                    ${{enlist.fare}}
+                    {{enlist.start_date}}
                   </li>
 
                   {% endfor %}
