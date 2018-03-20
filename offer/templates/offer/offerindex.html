@@ -92,7 +92,8 @@
 
 <div class="container">
     <div class="intro_text white-text div_zindex">
-
+      <form action="{% url 'offer:offerdetails' userid %}" method="post">
+        {% csrf_token %}
         <div class="search_form" style="padding-top:8%">
 
             <!--<div class="form-group select">
@@ -112,31 +113,31 @@
 
             <div class="idealforms add-ride" style="text-align: center;">
                 <h5 style="color:#000;padding-left:1em;padding-top:1em"></h5>
-                <input type="text" id="fromlocation"  class="form-control"  placeholder="Leaving From">
+                <input type="text" id="fromlocation" name = "fromlocation" class="form-control"  placeholder="Leaving From">
             </div>
             <div class="idealforms add-ride">
                 <h5 style="color:#000;padding-left:1em;padding-top:1em"></h5>
-                <input type="text" id="tolocation" class="form-control" placeholder="Going To">
+                <input type="text" id="tolocation" name = "tolocation" class="form-control" placeholder="Going To">
             </div>
             <div style="width: 100%; display: table;">
                 <div style="display: table-row">
                     <div class="idealforms add-ride" style="width:  40%; display: table-cell;">
                         <h5 style="color:#000;padding-left:1em;padding-top:1em">Start Date</h5>
-                        <p> <input  id="departure"  style="color:Black"></p>
+                        <p> <input  id="departure"  name = "start_date" style="color:Black"></p>
                     </div>
                      <div class="idealforms add-ride" style="width:  25%; display: table-cell;">
                         <h5 style="color:#000;padding-left:1em;padding-top:1em">Start Time</h5>
-                        <p><form> <input  type="text" class="timepicker" name="time/"  style="color:Black; padding-right:1em";></form></p>
-
+                        <p><form> <input  type="text" class="timepicker" name="start_time"  style="color:Black; padding-right:1em"></form></p>pp>
                     </div>
                     <!-- <div class="idealforms add-ride" style="width:  30%; display: table-cell;">
                         <h5 style="color:#000;padding-left:1em;padding-top:1em">Start Time</h5>
                         <p> <input  id="timeFrom"  style="color:Black"></p>
                     </div> -->
                     <div style="width: 10%"></div>
+                    <!-- TODO return_time issue-->
                     <div class="idealforms add-ride" style="width:  25%; display: table-cell;">
                         <h5 style="color:#000;padding-left:1em;padding-top:1em">Return Time</h5>
-                        <p> <form> <input  type="text" class="timepicker1" name="time1/"  style="color:Black";></form></p>
+                        <p> <form> <input  type="text" class="timepicker1" name="return_time" style="color:Black;"></form></p>
                     </div>
                     <!--<div class="idealforms add-ride" style="width:  30%; display: table-cell;">
                         <h5 style="color:#000;padding-left:1em;padding-top:1em">Return Time</h5>
@@ -152,24 +153,23 @@
                 </div>
             </div>
 
-
             <div style="width: 100%; display: table;">
                 <div class="idealforms add-ride" style="width: 45%; display: table-cell;">
                     <h5 style="color:#000;padding-left:1em;padding-top:1em">Car Model</h5>
-                    <select name="cars" class="form-control">
-                        <option value="1">Volkswagen Golf</option>
-                        <option value="2">Ford Fiesta</option>
-                        <option value="3">Toyota Corolla</option>
-                        <option value="4">BMW M4</option>
-                        <option value="5">Ford Escape</option>
-                        <option value="6">Subaru</option>
+                    <select name="car" class="form-control">
+                        <option value="Volkswagen Golf">Volkswagen Golf</option>
+                        <option value="Ford Fiesta">Ford Fiesta</option>
+                        <option value="Toyota Corolla">Toyota Corolla</option>
+                        <option value="BMW M4">BMW M4</option>
+                        <option value="Ford Escape">Ford Escape</option>
+                        <option value="Subaru">Subaru</option>
                     </select>
                 </div>
                 <div style="width=10%"></div>
 
                 <div class="idealforms add-ride" style="width: 45%; display: table-cell;">
                     <h5 style="color:#000;padding-left:1em;padding-top:1em">License Plate No</h5>
-                    <input type="text" id="licensenumber" class="form-control">
+                    <input type="text" id="licensenumber" name = "car_no" class="form-control">
                 </div>
             </div>
 
@@ -177,7 +177,7 @@
             <div style="width: 100%; display: table;">
                 <div class="idealforms add-ride" style="width:  45%; display: table-cell;">
                     <h5 style="color:#000;padding-left:1em;padding-top:1em">No of Seats</h5>
-                    <select name="cars" class="form-control">
+                    <select name="seats" class="form-control">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -190,30 +190,15 @@
                 <div style="width=10%"></div>
                 <div class="idealforms add-ride" style="width:  45%; display: table-cell;">
                     <h5 style="color:#000;padding-left:1em;padding-top:1em">Fare</h5>
-                    <input type="number" id="fare" min="0.0" step="1" class="form-control" placeholder="Enter Fare">
+                    <input type="number" id="fare" name = "fare" min="0.0" step="1" class="form-control" placeholder="Enter Fare">
                 </div>
             </div>
 
-            <!-- <form action="{% url 'offer:offerdetails' %}" method="post" onsubmit="setFormSubmitting()">
-                 {% csrf_token %}
-
-                 <div class="idealforms add-ride">
-                     <h5 style="color:#000; padding-left:1em; padding-top:1em"></h5>
-                     <input type="submit" value="Post a ride" class="btn btn-group">
-                 </div>
-
-             </form>-->
-
-
-            <form action="{% url 'offer:offerdetails' %}" method="post" onsubmit="setFormSubmitting()">
-                {% csrf_token %}
                 <h5 style="color:#000; padding-left:1em; padding-top:1em"></h5>
 
                 <input type="submit" value="Post a Ride" class="btn btn-block">
-
-
             </form>
-            <a href="/" onsubmit="setFormSubmitting()">
+            <a href="/">
                 <input  value="Cancel"  class="btn btn-block"
                        style="background:Red; padding: 1.2em "></a>
 
@@ -224,7 +209,7 @@
 
 
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
     var formSubmitting = false;
 var setFormSubmitting = function() { formSubmitting = true; };
 
@@ -245,10 +230,9 @@ window.onload = function() {
 
 
 
-</script>
+</script>-->
 <script>
     $(function(){
-
       $("#departure").datepicker({
         showAnim: "fadeIn",
         changeYear: true,
@@ -288,19 +272,3 @@ window.onload = function() {
   });
   });
    </script>
-
-
-<!--<form action = "{% url 'offer:offerdetails' %}" method = "post">
-{% csrf_token %}
-<input type = "textfield" id = "fromlocation" name = "fromlocation">
-<label for = "fromlocation"> From Location </label>
-<input type = "textfield" id = "tolocation" name = "tolocation">
-<label for = "tolocation"> To Location </label>
-<input type = "textfield" id = "startdate" name = "startdate">
-<label for = "startdate"> Start Date </label>
-<input type = "textfield" id = "numberofpassengers" name = "numberofpassengers">
-<label for = "numberofpassengers"> Number of passengers </label>
-<input type = "textfield" id = "fare" name = "fare">
-<label for = "fare"> Fare </label>
-<input type = "submit" value = "Post">
-</form>-->

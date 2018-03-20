@@ -3,7 +3,7 @@ from django.contrib import admin
 
 urlpatterns = [
     # first landing page - /
-    url(r'^$', include('travel.urls')),
+    url(r'^', include('travel.urls')),
     #admin url - /admin
     url(r'^admin/', admin.site.urls),
     #book url - /book

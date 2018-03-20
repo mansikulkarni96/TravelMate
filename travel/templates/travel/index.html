@@ -40,7 +40,7 @@
                     <li><a href="dashboard-my-profile.html">My Profile</a></li>
                 </ul>
               </li>-->
-                <li ><a href="#">Sign Up</a> <span class="arrow"></span>
+                <li ><a href="{% url 'travel:register'%}">Sign Up</a> <span class="arrow"></span>
               	 <!--<ul class="sub-menu">
                 	<li><a href="about-us.html">About Us</a></li>
                     <li><a href="how-it-work.html">How it Work</a></li>
@@ -49,7 +49,7 @@
                 </ul>-->
               </li>
 
-              <li><a href="#">Sign In</a></li>
+              <li><a href="{% url 'travel:login'%}">Sign In</a></li>
             </ul>
             <!--<div class="submit_listing">
 	            <a href="/offer" class="btn outline-btn"><i class="fa  fa-plus-circle"></i>+ Offer a Ride</a>
@@ -97,9 +97,9 @@
                     </div>-->
 
 
-
+                    <!--TODO need to dynamically fetch the user id after login-->
                     <div style="padding-left:30%;padding-right:30%">
-                        <a href ='/offer'> <input type="submit"   value="Offer a ride" class="btn btn-block"></a>
+                        <a href ='/offer/1/'> <input type="submit"   value="Offer a ride" class="btn btn-block"></a>
 
                     &nbsp;   <p >OR</p>
                         <a href ='/book'><input type="submit" href ='/book' value="Find a ride" class="btn btn-block"></a>

@@ -81,13 +81,16 @@ $(document).ready(function(){
   </div>
   <div class="ride details">
     <h3 style="color:#000;text-align: center;">My Current Enlisted Rides</h3>
+    {% for enlist in all_enlists %}
     <div class="card bg-light mb-3 removecard">
       <div class="card-block ">
+        <div class="card-body"><strong>Enlist Id: </strong>{{enlist.id}}</div>
+        <div class="card-body"><strong>Start Date: </strong> {{enlist.start_date}}</div>
+        <div class="card-body"><strong>Start Time: </strong> {{enlist.start_time}}</div>
+        <div class="card-body"><strong>Return Time: </strong> {{enlist.return_time}}</div>
+        <div class="card-body"><strong>Car Model: </strong> {{enlist.car_model}}</div>
+        <div class="card-body"><strong>Car No: </strong> {{enlist.car_no}}</div>
 
-        <div class="card-body"><strong>Enlist Id: </strong>E01</div>
-        <div class="card-body"><strong>Driver Name: </strong>Your Name</div>
-        <div class="card-body"><strong>Start Date: </strong> 01/04/2018</div>
-        <div class="card-body"><strong>End Date: </strong> 03/04/2018</div>
         <div class=" text-right">
           <button class="btn btn-danger" data-toggle="modal" data-target="#myModal"> Remove </button>
         </div>
@@ -96,6 +99,7 @@ $(document).ready(function(){
             <button id="demo" class="btn btn-success confirmcrd" onclick="myFunction()" data-toggle="modal" data-target="#myModal">Confirm</button>
         </div>-->
       </div>
+      {% endfor %}
 
     <!--<a href ="/" ><button type="button" class="btn btn-success" > Home</button></a>-->
     </div>

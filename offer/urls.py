@@ -4,8 +4,8 @@ from . import views
 app_name = 'offer'
 
 urlpatterns = [
-    #/offer/
-    url(r'^$', views.index, name = 'index'),
-    #/offer/offerdetails
-    url(r'^offerdetails/', views.offerdetails, name = 'offerdetails'),
+    #/offer/<userid>/
+    url(r'^(?P<userid>[0-9]+)/$', views.index, name = 'index'),
+    #/offer/<userid>/offerdetails
+    url(r'^(?P<userid>[0-9]+)/offerdetails/', views.offerdetails, name = 'offerdetails'),
 ]
