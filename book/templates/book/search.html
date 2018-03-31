@@ -97,7 +97,7 @@
                 </div>
                 <h4>Search Results</h4>
 
-                <ul>
+                <!-- <ul>
                   {% for enlist in all_enlists %}
                   <li>
                     {{enlist.from_loc}}
@@ -108,10 +108,30 @@
                   </li>
 
                   {% endfor %}
-                </ul>
+                </ul> -->
+
+                <table>
+                  <tr>
+                    <th>Date</th>
+                    <th>Ride Offered By</th>
+                    <th>Fare Price</th>
+                    <th></th>
+                  </tr>
+
+                  {% for enlist in all_enlists %}
+                  <tr>
+                    <td>{{enlist.start_date}}</td>
+                    <td>{{enlist.uid.fname}}</td>
+                    <td>{{enlist.fare}}</td>
+                    <td>
+                      <input type="submit" data-toggle="modal" data-target="#myModal" value="Book" class="btn" style="margin-left:0%;margin-top:4%">
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </table>
 
 
-                <div class="accordionItem open">
+                <!-- <div class="accordionItem open">
                     <h4 class="accordionItemHeading">1 Hour Away</h4>
                     <div class="accordionItemContent">
                         <div class="row">
@@ -126,13 +146,13 @@
                             <div style="float: left;width: 30%;padding: 1%;height: 20%;">
                                 <h4 >Price</h4>
                                 <input type="text" name="lname" disabled value="$15" class="text-center">
-                                <!--<input type="submit" value="Book" class="btn">-->
-                            </div>
+                                <!<input type="submit" value="Book" class="btn">-->
+                            <!-- </div>
                             <input type="submit" data-toggle="modal" data-target="#myModal" value="Book" class="btn" style="margin-left:0%;margin-top:4%">
                         </div>
                     </div>
-                </div>
-                <div class="accordionItem close">
+                </div> -->
+              <!--  <div class="accordionItem close">
                     <h4 class="accordionItemHeading">2 Hours Away</h4>
                     <div class="accordionItemContent">
                         <div class="row">
@@ -147,7 +167,7 @@
                             <div style="float: left;width: 30%;padding: 1%;height: 20%;">
                                 <h4 >Price</h4>
                                 <input type="text" name="lname" disabled value="$8" class="text-center">
-                                <!--<input type="submit" value="Book" class="btn">-->
+                                <input type="submit" value="Book" class="btn">
                             </div>
                             <input type="submit" data-toggle="modal" data-target="#myModal" value="Book" class="btn" style="margin-left:0%;margin-top:4%">
                         </div>
@@ -169,13 +189,13 @@
                             </div>
                             <div style="float: left;width: 30%;padding: 1%;height: 20%;">
                                 <h4 >Price</h4>
-                                <input type="text" name="lname" disabled value="$10" class="text-center">
+                                <input type="text" name="lname" disabled value="$10" class="text-center"> -->
                                 <!--<input type="submit" value="Book" class="btn">-->
-                            </div>
+                            <!-- </div>
                             <input type="submit" data-toggle="modal" data-target="#myModal" value="Book" class="btn" style="margin-left:0%;margin-top:4%">
                         </div>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 

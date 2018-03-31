@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 def index(request,userid):
-    print userid
+    # print userid
     context = {'userid':userid}
     return render(request,'offer/offerindex.html', context)
 
