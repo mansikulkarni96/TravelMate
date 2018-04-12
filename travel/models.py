@@ -9,7 +9,6 @@ class User(models.Model):
     lname = models.CharField(max_length = 250)
     phone = models.IntegerField()
     email = models.CharField(max_length = 250)
-    password = models.CharField(max_length = 250)
     rating = models.FloatField(default=5.0)
 
 

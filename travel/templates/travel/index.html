@@ -40,7 +40,16 @@
                     <li><a href="dashboard-my-profile.html">My Profile</a></li>
                 </ul>
               </li>-->
-                <li ><a href="{% url 'travel:register'%}">Sign Up</a> <span class="arrow"></span>
+              {% if request.session.username%}
+              <li ><a href="#">{{request.session.username}}</a> <span class="arrow"></span>
+                <ul class="sub-menu">
+                  <li><a href="/myride">My Rides</a></li>
+                  <li><a href="#">My Profile</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Sign Out</a></li>
+              {% else %}
+              <li ><a href="{% url 'travel:register'%}">Sign Up</a> <span class="arrow"></span>
               	 <!--<ul class="sub-menu">
                 	<li><a href="about-us.html">About Us</a></li>
                     <li><a href="how-it-work.html">How it Work</a></li>
@@ -48,9 +57,12 @@
                     <li><a href="contact-us.html">Contact Us</a></li>
                 </ul>-->
               </li>
-
               <li><a href="{% url 'travel:login'%}">Sign In</a></li>
+              {% endif %}
+
+
             </ul>
+
             <!--<div class="submit_listing">
 	            <a href="/offer" class="btn outline-btn"><i class="fa  fa-plus-circle"></i>+ Offer a Ride</a>
             </div>-->
@@ -99,8 +111,11 @@
 
                     <!--TODO need to dynamically fetch the user id after login-->
                     <div style="padding-left:30%;padding-right:30%">
-                        <a href ='/offer/1/'> <input type="submit"   value="Offer a ride" class="btn btn-block"></a>
-
+                      {% if request.session.userid %}
+                        <a href ="{% url 'offer:index' request.session.userid %}"> <input type="submit"   value="Offer a ride" class="btn btn-block"></a>
+                      {% else %}
+                        <a href ="{% url 'travel:login'%}"> <input type="submit"   value="Offer a ride" class="btn btn-block"></a>
+                      {% endif %}
                     &nbsp;   <p >OR</p>
                         <a href ='/book'><input type="submit" href ='/book' value="Find a ride" class="btn btn-block"></a>
                     &nbsp;
