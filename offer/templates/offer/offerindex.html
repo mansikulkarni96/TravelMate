@@ -12,21 +12,29 @@
 
 
 <!--Date Picker-->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"> </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"> </script>
 <link rel="stylesheet" href="https://jonthornton.github.io/jquery-timepicker/jquery.timepicker.css">
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/blitzer/jquery-ui.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
-</script>
-<script src="https://jonthornton.github.io/jquery-timepicker/jquery.timepicker.js">
-</script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/blitzer/jquery-ui.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
+    </script>
+    <script src="https://jonthornton.github.io/jquery-timepicker/jquery.timepicker.js">
+    </script>
 
-<script>
-(function($) {
-  $(function() {
-    $("input.timepicker1").timepicker();
-  });
-})(jQuery);
-</script>
+    <script>
+    (function($) {
+    $(function() {
+        $("input.timepicker").timepicker();
+    });
+    })(jQuery);
+    </script>
+
+    <script>
+    (function($) {
+    $(function() {
+        $("input.timepicker1").timepicker();
+    });
+    })(jQuery);
+    </script>
 
 
 
@@ -34,46 +42,47 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,800" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 <header id="header">
-  <nav class="navbar navbar-default navbar-fixed-top" data-spy="affix" data-offset-top="10">
-    <div class="container">
-      <div class="navbar-header">
-        <div class="logo"><a href="{% url 'travel:index' %}"><img src="{%static 'images/logo1.png'%}"
-          alt="image"/></a></div>
-          <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse"
-          class="navbar-toggle collapsed" type="button">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <div class="collapse navbar-collapse" id="navigation">
-        <ul class="nav navbar-nav">
-          <!--<li class="menu-item-has-children"><a href="#">User Panel</a> <span class="arrow"></span>
-          <ul class="sub-menu">
-          <li><a href="dashboard.html">Dashboard</a></li>
-          <li><a href="dashboard-my-listings.html">My Listings</a></li>
-          <li><a href="dashboard-reviews.html">Reviews</a></li>
-          <li><a href="dashboard-bookmarks.html">Bookmarks</a></li>
-          <li><a href="blog-single.html">Add Listing</a></li>
-          <li><a href="dashboard-my-profile.html">My Profile</a></li>
-        </ul>
-      </li>-->
-      <li><a href="">{{request.session.username}}</a> <span class="arrow"></span>
-        <ul class="sub-menu">
-          <li><a href="/myride">My Rides</a></li>
-          <li><a href="{% url 'travel:index' %}">Sign Out</a></li>
-        </ul>
-      </li>
+    <nav class="navbar navbar-default navbar-fixed-top" data-spy="affix" data-offset-top="10">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="logo"><a href="{% url 'travel:index' %}"><img src="{%static 'images/logo1.png'%}"
+                                                                          alt="image"/></a></div>
+                <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse"
+                        class="navbar-toggle collapsed" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navigation">
+                <ul class="nav navbar-nav">
+                    <!--<li class="menu-item-has-children"><a href="#">User Panel</a> <span class="arrow"></span>
+                    <ul class="sub-menu">
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="dashboard-my-listings.html">My Listings</a></li>
+                    <li><a href="dashboard-reviews.html">Reviews</a></li>
+                    <li><a href="dashboard-bookmarks.html">Bookmarks</a></li>
+                    <li><a href="blog-single.html">Add Listing</a></li>
+                    <li><a href="dashboard-my-profile.html">My Profile</a></li>
+                  </ul>
+                </li>-->
+                    <li><a href="#">{{request.session.username}}</a> <span class="arrow"></span>
+                        <ul class="sub-menu">
+                            <li><a href="/myride">My Rides</a></li>
+                            <!--<li><a href="#">My Profile</a></li>-->
+                            <li><a href="{% url 'travel:index' %}">Sign Out</a></li>
+                        </ul>
+                    </li>
 
-      <!--<li><a href="signin.html">Sign In</a></li>-->
-    </ul>
-    <div class="submit_listing">
-      <a href="/book" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->Search a ride</a>
-    </div>
-  </div>
-</div>
-</nav>
+                    <!--<li><a href="signin.html">Sign In</a></li>-->
+                </ul>
+                <div class="submit_listing">
+                    <a href="/book" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->Search a ride</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 </header>
 
 <!--<h1>Book index</h1>-->
@@ -82,199 +91,217 @@
 
 
 <div class="container">
-  <div class="intro_text white-text div_zindex">
-    <!--"javascript:alert(document.getElementsByName('return_time')[0].value);"-->
-    <!--<form action="{% url 'offer:offerdetails' userid %}" method="post">-->
-    <form action="{% url 'offer:offerdetails' userid %}" method="post">
-      {% csrf_token %}
-      <div class="" style="padding-top:8%">
+    <div class="intro_text white-text div_zindex">
+      <form action="{% url 'offer:offerdetails' userid %}" method="post">
+        {% csrf_token %}
+        <div class="" style="padding-top:8%">
 
-        <!--<div class="form-group select">
-        <select class="form-control">
-        <option>Where are you?</option>
-        <option>Northeastern University</option>
-        <option>Downtown</option>
-        <option></option>
-        <option>Health & Fitness</option>
-        <option>Beauty & Spas</option>
-        <option>Hotels & Travel</option>
-        <option>Automotive</option>
-      </select>
-    </div>-->
-    <h3 style="color:#000;text-align: center;">Offer your Ride</h3>
+            <!--<div class="form-group select">
+            <select class="form-control">
+            <option>Where are you?</option>
+            <option>Northeastern University</option>
+            <option>Downtown</option>
+            <option></option>
+            <option>Health & Fitness</option>
+            <option>Beauty & Spas</option>
+            <option>Hotels & Travel</option>
+            <option>Automotive</option>
+          </select>
+        </div>-->
+            <h3 style="color:#000;text-align: center;">Offer your Ride</h3>
 
 
-    <div class="idealforms add-ride" style="text-align: center;">
-      <h5 style="color:#000;padding-left:1em;padding-top:1em"></h5>
-      <input type="text" id="fromlocation" name = "fromlocation" class="form-control"  placeholder="Leaving From" required>
-    </div>
-    <div class="idealforms add-ride">
-      <h5 style="color:#000;padding-left:1em;padding-top:1em"></h5>
-      <input type="text" id="tolocation" name = "tolocation" class="form-control" placeholder="Going To" onblur="checkSame(); return false;" required>
-    </div>
-    <span id="confirmMessage" class="confirmMessage"></span>
-    <div style="width: 100%; display: table;">
-      <div style="display: table-row">
-        <div class="idealforms add-ride" style="width:  25%; display: table-cell;">
-          <h5 style="color:#000;padding-left:1em;padding-top:1em;">Start Date</h5>
-          <p> <input  id="departure"  name = "start_date" style="color:Black" required></p>
+            <div class="idealforms add-ride" style="text-align: center;">
+                <h5 style="color:#000;padding-left:1em;padding-top:1em"></h5>
+                <input type="text" id="fromlocation" name = "fromlocation" class="form-control"  placeholder="Leaving From" required>
+            </div>
+            <div class="idealforms add-ride">
+                <h5 style="color:#000;padding-left:1em;padding-top:1em"></h5>
+                <input type="text" id="tolocation" name = "tolocation" class="form-control" placeholder="Going To" onblur="checkSame(); return false;" required>
+            </div>
+            <span id="confirmMessage" class="confirmMessage"></span>
+            <div style="width: 100%; display: table;">
+                <div style="display: table-row">
+                    <div class="idealforms add-ride" style="width:  25%; display: table-cell;">
+                        <h5 style="color:#000;padding-left:1em;padding-top:1em;">Start Date</h5>
+                        <p> <input  id="departure"  name = "start_date" style="color:Black" required></p>
+                    </div>
+
+                    <div style="width:12%"></div>
+                    <div class="idealforms add-ride" style="width:  25%; display: table-cell;">
+                        <h5 style="color:#000;padding-left:1em;padding-top:1em">Start Time</h5>
+                        <p> <input  type="text" class="timepicker1" name="start_time"  style="color:Black;" required></p>
+                    </div>
+                    <!-- <div class="idealforms add-ride" style="width:  30%; display: table-cell;">
+                        <h5 style="color:#000;padding-left:1em;padding-top:1em">Start Time</h5>
+                        <p> <input  id="timeFrom"  style="color:Black"></p>
+                    </div> -->
+                    <div style="width: 12%"></div>
+                    <!-- TODO return_time issue-->
+
+                    <div class="idealforms add-ride" style="width:  25%; display: table-cell;">
+                        <h5 style="color:#000;padding-left:1em;padding-top:1em">Return Time</h5>
+                            <p>  <input  type="text" class="timepicker1" name="return_time" style="color:Black;" required></p>
+                    </div>
+                    <!--<div class="idealforms add-ride" style="width:  30%; display: table-cell;">
+                        <h5 style="color:#000;padding-left:1em;padding-top:1em">Return Time</h5>
+                        <p> <input  id="timeTo"  style="color:Black"></p>
+                    </div>-->
+
+
+
+                    <!--<div class="idealforms add-ride" style="width: 45%; display: table-cell;">
+                        <h5 style="color:#000;padding-left:1em;padding-top:1em">End Date</h5>
+                        <input type="date" id="enddate1" class="form-control" placeholder="Date">
+                    </div>-->
+                </div>
+            </div>
+
+            <div style="width: 100%; display: table;">
+                <div class="idealforms add-ride" style="width: 45%; display: table-cell;">
+                    <h5 style="color:#000;padding-left:1em;padding-top:1em">Car Model</h5>
+                    <select name="car" class="form-control">
+                        <option value="Volkswagen Golf">Volkswagen Golf</option>
+                        <option value="Ford Fiesta">Ford Fiesta</option>
+                        <option value="Toyota Corolla">Toyota Corolla</option>
+                        <option value="BMW M4">BMW M4</option>
+                        <option value="Ford Escape">Ford Escape</option>
+                        <option value="Subaru">Subaru</option>
+                    </select>
+                </div>
+                <div style="width=10%"></div>
+
+                <div class="idealforms add-ride" style="width: 45%; display: table-cell;">
+                    <h5 style="color:#000;padding-left:1em;padding-top:1em">License Plate No</h5>
+                    <input type="text" id="licensenumber" name = "car_no" class="form-control" required>
+                </div>
+            </div>
+
+
+            <div style="width: 100%; display: table;">
+                <div class="idealforms add-ride" style="width:  45%; display: table-cell;">
+                    <h5 style="color:#000;padding-left:1em;padding-top:1em">No of Seats</h5>
+                    <select name="seats" class="form-control">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+
+                <div style="width=10%"></div>
+                <div class="idealforms add-ride" style="width:  45%; display: table-cell;">
+                    <h5 style="color:#000;padding-left:1em;padding-top:1em">Fare</h5>
+                    <input type="number" id="fare" name = "fare" min="0.0" step="1" class="form-control" placeholder="Enter Fare" required>
+                </div>
+            </div>
+
+                <h5 style="color:#000; padding-left:1em; padding-top:1em"></h5>
+
+                <input type="submit" value="Post a Ride" class="btn btn-block">
+            </form>
+            <br>
+            <a href="/">
+                <input  value="Cancel"  class="btn btn-block"
+                       style="background:Red; padding: 1.2em "></a>
+
+            <h5 style="color:#000; padding-left:1em; padding-top:1em"></h5>
         </div>
-
-        <div style="width:12%"></div>
-        <div class="idealforms add-ride" style="width:  25%; display: table-cell;">
-          <h5 style="color:#000;padding-left:1em;padding-top:1em">Start Time</h5>
-          <p><form> <input  type="text" class="timepicker1" name="start_time"  style="color:Black;" required></form></p>
-        </div>
-        <!-- <div class="idealforms add-ride" style="width:  30%; display: table-cell;">
-        <h5 style="color:#000;padding-left:1em;padding-top:1em">Start Time</h5>
-        <p> <input  id="timeFrom"  style="color:Black"></p>
-      </div> -->
-      <div style="width: 12%"></div>
-      <!-- TODO return_time issue-->
-
-      <div class="idealforms add-ride" style="width:  25%; display: table-cell;">
-        <h5 style="color:#000;padding-left:1em;padding-top:1em">Return Time</h5>
-        <p> <form> <input  type="text" class="timepicker1" name="return_time" style="color:Black;"  required></form></p>
-      </div>
-      <!--<div class="idealforms add-ride" style="width:  30%; display: table-cell;">
-      <h5 style="color:#000;padding-left:1em;padding-top:1em">Return Time</h5>
-      <p> <input  id="timeTo"  style="color:Black"></p>
-    </div>-->
-
-
-
-    <!--<div class="idealforms add-ride" style="width: 45%; display: table-cell;">
-    <h5 style="color:#000;padding-left:1em;padding-top:1em">End Date</h5>
-    <input type="date" id="enddate1" class="form-control" placeholder="Date">
-  </div>-->
-</div>
-</div>
-
-<div style="width: 100%; display: table;">
-  <div class="idealforms add-ride" style="width: 45%; display: table-cell;">
-    <h5 style="color:#000;padding-left:1em;padding-top:1em">Car Model</h5>
-    <select name="car" class="form-control">
-      <option value="Volkswagen Golf">Volkswagen Golf</option>
-      <option value="Ford Fiesta">Ford Fiesta</option>
-      <option value="Toyota Corolla">Toyota Corolla</option>
-      <option value="BMW M4">BMW M4</option>
-      <option value="Ford Escape">Ford Escape</option>
-      <option value="Subaru">Subaru</option>
-    </select>
-  </div>
-  <div style="width=10%"></div>
-
-  <div class="idealforms add-ride" style="width: 45%; display: table-cell;">
-    <h5 style="color:#000;padding-left:1em;padding-top:1em">License Plate No</h5>
-    <input type="text" id="licensenumber" name = "car_no" class="form-control" required>
-  </div>
-</div>
-
-
-<div style="width: 100%; display: table;">
-  <div class="idealforms add-ride" style="width:  45%; display: table-cell;">
-    <h5 style="color:#000;padding-left:1em;padding-top:1em">No of Seats</h5>
-    <select name="seats" class="form-control">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-    </select>
-  </div>
-
-  <div style="width=10%"></div>
-  <div class="idealforms add-ride" style="width:  45%; display: table-cell;">
-    <h5 style="color:#000;padding-left:1em;padding-top:1em">Fare</h5>
-    <input type="number" id="fare" name = "fare" min="0.0" step="1" class="form-control" placeholder="Enter Fare in $" required>
-  </div>
-</div>
-
-<h5 style="color:#000; padding-left:1em; padding-top:1em"></h5>
-<div style="text-align: center;">
-  <input type="submit" value="Post a Ride" class="btn btn-lg">
-  <a href="/">
-    <input  value="Cancel"  class="btn btn-xs"
-    style="background:Red;"></a>
-</div>
-
-</div>
-</form>
-<br>
-  <h5 style="color:#000; padding-left:1em; padding-top:1em"></h5>
-</div>
+    </div>
 </div>
 
 
 
+<!--<script type="text/javascript">
+    var formSubmitting = false;
+var setFormSubmitting = function() { formSubmitting = true; };
 
+window.onload = function() {
+    window.addEventListener("beforeunload", function (e) {
+        if (formSubmitting) {
+            return undefined;
+        }
+
+        var confirmationMessage = 'It looks like you have been editing something. '
+                                + 'If you leave before saving, your changes will be lost.';
+
+        (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+        return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
+    });
+};
+
+
+
+
+</script>-->
 <script>
-$(function(){
-  $("#departure").datepicker({
-    showAnim: "fadeIn",
-    changeYear: true,
-    numberOfMonths: 1,
-    dateFormat: "mm/dd/yy",
+    $(function(){
+      $("#departure").datepicker({
+        showAnim: "fadeIn",
+        changeYear: true,
+        numberOfMonths: 1,
+        dateFormat: "mm/dd/yy",
 
-    minDate: +1,
-    maxDate: "+12M +10D",
-    onClose: function(selectedDate){
-      $("#return").datepicker("option", "minDate", selectedDate)
-    }
-    ,
-    showWeek: true
-  });
-});
+        minDate: +1,
+        maxDate: "+12M +10D",
+        onClose: function(selectedDate){
+          $("#return").datepicker("option", "minDate", selectedDate)
+        }
+        ,
+        showWeek: true
+      });
+    });
 
-</script>
+  </script>
 
 
-<script>
-$(function(){
+  <script>
+  $(function(){
   $("#fromlocation").autocomplete({
-    source: ["Boston","Chicago","California","London","San Francisco","London",
-    "Northeastern University", "Burlington", "Andover", "Paris", "Paris", "Paris", "Madrid", "Madrid", "Madrid",
-    "Madrid", "Madrid"]
+  source: ["Boston","Chicago","California","London","San Francisco","London",
+      "Northeastern University", "Burlington", "Andover", "Paris", "Paris", "Paris", "Madrid", "Madrid", "Madrid",
+      "Madrid", "Madrid"]
   });
-});
-</script>
+  });
+   </script>
 <script>
-$(function(){
+  $(function(){
   $("#tolocation").autocomplete({
-    source: ["Boston","Chicago","California","London","San Francisco","London",
-    "Northeastern University", "Burlington", "Andover", "Paris", "Paris", "Paris", "Madrid", "Madrid", "Madrid",
-    "Madrid", "Madrid"]
+  source: ["Boston","Chicago","California","London","San Francisco","London",
+      "Northeastern University", "Burlington", "Andover", "Paris", "Paris", "Paris", "Madrid", "Madrid", "Madrid",
+      "Madrid", "Madrid"]
   });
-});
-</script>
+  });
+   </script>
 <script>
-function checkSame()
+    function checkSame()
 {
-  //Store the password field objects into variables ...
-  var fromlocation = document.getElementById('fromlocation');
-  var tolocation = document.getElementById('tolocation');
-  //Store the Confimation Message Object ...
-  var message = document.getElementById('confirmMessage');
-  //Set the colors we will be using ...
-  var goodColor = "#ff6666";
-  var badColor = "#ffffff";
-  //Compare the values in the password field
-  //and the confirmation field
-  if(fromlocation.value == tolocation.value && tolocation.value !=""){
-    //The passwords match.
-    //Set the color to the good color and inform
-    //the user that they have entered the correct password
-    tolocation.style.border = "2px solid Red";
-    message.style.color = goodColor;
-    message.innerHTML = "Location cannot be Same!"
-  }else{
-    //The passwords do not match.
-    //Set the color to the bad color and
-    //notify the user.
-    tolocation.style.border = "";
-    tolocation.style.backgroundColor = badColor;
-    message.innerHTML = "";
-  }
+    //Store the password field objects into variables ...
+    var fromlocation = document.getElementById('fromlocation');
+    var tolocation = document.getElementById('tolocation');
+    //Store the Confimation Message Object ...
+    var message = document.getElementById('confirmMessage');
+    //Set the colors we will be using ...
+    var goodColor = "#ff6666";
+    var badColor = "#ffffff";
+    //Compare the values in the password field
+    //and the confirmation field
+     if(fromlocation.value == tolocation.value && tolocation.value !=""){
+        //The passwords match.
+        //Set the color to the good color and inform
+        //the user that they have entered the correct password
+        tolocation.style.border = "2px solid Red";
+        message.style.color = goodColor;
+        message.innerHTML = "Location cannot be Same!"
+    }else{
+        //The passwords do not match.
+        //Set the color to the bad color and
+        //notify the user.
+        tolocation.style.border = "";
+        tolocation.style.backgroundColor = badColor;
+        message.innerHTML = "";
+    }
 }
 </script>
