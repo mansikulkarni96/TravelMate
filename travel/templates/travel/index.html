@@ -41,10 +41,9 @@
                 </ul>
               </li>-->
               {% if request.session.username%}
-              <li ><a href="#">{{request.session.username}}</a> <span class="arrow"></span>
+              <li ><a href="">{{request.session.username}}</a> <span class="arrow"></span>
                 <ul class="sub-menu">
                   <li><a href="/myride">My Rides</a></li>
-                  <li><a href="#">My Profile</a></li>
                 </ul>
               </li>
               <li><a href="#">Sign Out</a></li>
@@ -133,15 +132,14 @@
 
 <section id="about_info" class="section-padding">
 	<div class="container">
-    	<div class="row">
-        	<div class="col-md-5 col-md-offset-7">
-            	<div class="white_box">
-                    <h3>Save time and hassle. Let us find Quick and Easy Rides</h3>
-                    <p>Travel Mate Description Travel Mate Description Travel Mate Description Travel Mate Description</p>
-                    <!--<a href="#" class="btn">Start Now !</a>-->
-                </div>
-            </div>
-        </div>
+        <div class="row">
+            <div class="col-sm-5" ><img src="{%static 'images/neu.png'%}" style="margin:auto;width:50%;display:block;margin-top:15%" /></div>
+            <div class="col-sm-2" ></div>
+            <div class="col-sm-5" ><h2>By Northeastern. </h2>
+                    <h2>For Northeastern!</h2>
+                    <p>Save time and hassle. Catch a ride with your fellow Huskies! You can either look for a ride or just offer your ride to share it with your fellow huskies!</p></div>
+
+  </div>
 	</div>
 </section>
 

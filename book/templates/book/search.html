@@ -43,13 +43,10 @@
                     <li><a href="#">Username</a> <span class="arrow"></span>
                         <ul class="sub-menu">
                             <li><a href="/myride">My Rides</a></li>
-                            <li><a href="#">My Profile</a></li>
 
                             <li><a href="/index">Sign Out</a></li>
                         </ul>
                     </li>
-
-                    <!--<li><a href="signin.html">Sign In</a></li>-->
                 </ul>
                 <div class="submit_listing">
                     <a href="/offer" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->+ Offer a ride</a>
@@ -210,14 +207,14 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
           <h4 class="modal-title">Congrats</h4>
         </div>
         <div class="modal-body">
           <p>You successfully booked the Ride.</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <a href="{% url 'myride:upcoming' %}" id="btnYes" class="btn agree">Close</a>
         </div>
       </div>
 

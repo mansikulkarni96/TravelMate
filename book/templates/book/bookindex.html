@@ -22,7 +22,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
 </script>
 
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- Google-Font-->
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,800" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
@@ -50,10 +50,9 @@
           <li><a href="dashboard-my-profile.html">My Profile</a></li>
         </ul>
       </li>-->
-      <li ><a href="#">Username</a> <span class="arrow"></span>
+      <li ><a href="">Username</a> <span class="arrow"></span>
         <ul class="sub-menu">
           <li><a href="/myride">My rides</a></li>
-          <li><a href="#">My Profile</a></li>
 
           <li><a href="/index">Sign Out</a></li>
         </ul>
@@ -62,7 +61,7 @@
       <!--<li><a href="signin.html">Sign In</a></li>-->
     </ul>
     <div class="submit_listing">
-      <a href="/offer" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->+ Offer a ride</a>
+      <a href="/offer/1" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->+ Offer a ride</a>
     </div>
   </div>
 </div>
@@ -100,30 +99,30 @@
 
 
     <!-- IMP PART OF PAGE -->
-<!--
+    <!--
     <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit"> Submit</button>
-    </form> -->
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit"> Submit</button>
+  </form> -->
 
-    <form action="{% url 'book:searchres' %}" method="post">
-      {% csrf_token %}
-      <div class="form-group">
-        <input type="text" name="fromlocation" id = "fromlocation" class="form-control" placeholder="Leaving From">
-      </div>
-      <div class="form-group">
-        <input type="text" name="tolocation" id = "tolocation" class="form-control" placeholder="Going To">
-      </div>
-      <div class="form-group">
-        <p> <input  name="departure" id="departure"  style="color:Black" placeholder="mm/dd/yyyy"></p>
-        <!--<input type="date" id = "startdate" class="form-control" placeholder="Date">-->
-      </div>
-      <div class="form-group search_btn">
-        <input type="submit" value="Find a ride"class="btn btn-block"/>
-      </div>
-    </form>
-  </div>
+  <form action="{% url 'book:searchres' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <input type="text" name="fromlocation" id = "fromlocation" class="form-control" placeholder="Leaving From" required>
+    </div>
+    <div class="form-group">
+      <input type="text" name="tolocation" id = "tolocation" class="form-control" placeholder="Going To" required>
+    </div>
+    <div class="form-group">
+      <p> <input  name="departure" id="departure"  style="color:Black" placeholder="mm/dd/yyyy" required></p>
+      <!--<input type="date" id = "startdate" class="form-control" placeholder="Date">-->
+    </div>
+    <div class="form-group search_btn">
+      <input type="submit" value="Find a ride"class="btn btn-block"/>
+    </div>
+  </form>
+</div>
 </div>
 </div>
 <div class="dark-overlay"></div>
@@ -229,19 +228,58 @@
 <section id="about_info" class="section-padding">
   <div class="container">
     <div class="row">
-      <div class="col-md-5 col-md-offset-7">
-        <div class="white_box">
-          <h3>Save time and hassle. Let us find Quick and Easy</h3>
-          <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure.</p>
-          <!--<a href="#" class="btn">Start Now !</a>-->
+      <div class="col-sm-5" ><img src="{%static 'images/neu.png'%}" style="margin:auto;width:50%;display:block;margin-top:15%" /></div>
+      <div class="col-sm-2"></div>
+      <div class="col-sm-5 " >
+        <h3>Some useful tips:</h3>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="height:30%;background-color:black">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" style="width:100%;" >
+            <div class="item active">
+              <div class="d-block w-100" >
+                <h2 style="padding-left:20%;background-color:lavender;width:60%">#Pro Tip 1</h2>
+
+              </div>
+              <p style="padding-left:20%;color:white">When in doubt, carry your own music!</p>
+            </div>
+
+            <div class="item">
+              <div class="d-block w-100" >
+                <h2 style="padding-left:10%;background-color:lavenderblush;width:60%">#Pro Tip 2</h2>
+              </div>
+              <p style="padding-left:10%;color:white">Finding a Travel-Mate is easier than getting a lyft ;)</p>
+            </div>
+
+            <div class="item">
+              <div class="d-block w-100" >
+                <h2 style="padding-left:20%;background-color:lavender;width:60%">#Pro Tip 3</h2>
+              </div>
+              <p style="padding-left:10%;color:white">Always clean up after completing a ride. Nobody wants your chewingum under their dashboard.</p>
+            </div>
+          </div>
+
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </section>
-
-
 
 
 <script>
@@ -269,58 +307,58 @@ $(function(){
 <script>
 
 
-  $(function(){
+$(function(){
   $("#fromlocation").autocomplete({
-  source: ["Boston","Chicago","California","London","San Francisco","London",
-      "Northeastern University", "Burlington", "Andover","Paris", "Paris", "Madrid",
-       "Copley","Wilmington"]
+    source: ["Boston","Chicago","California","London","San Francisco","London",
+    "Northeastern University", "Burlington", "Andover","Paris", "Paris", "Madrid",
+    "Copley","Wilmington"]
   });
-  });
+});
 
 
-   </script>
-
-    <script>
-
-
-  $(function(){
-  $("#tolocation").autocomplete({
-  source: ["Boston","Chicago","California","London","San Francisco","London",
-      "Northeastern University", "Burlington", "Andover","Paris", "Paris", "Madrid",
-       "Copley","Wilmington"]
-  });
-  });
-
-
-   </script>
+</script>
 
 <script>
 
 
-  $(function(){
-  $("#fromlocation").autocomplete({
-  source: ["Boston","Chicago","California","London","San Francisco","London",
-      "Northeastern University", "Burlington", "Andover","Paris", "Paris", "Madrid",
-       "Copley","Wilmington"]
-  });
-  });
-
-
-   </script>
-
-    <script>
-
-
-  $(function(){
+$(function(){
   $("#tolocation").autocomplete({
-  source: ["Boston","Chicago","California","London","San Francisco","London",
-      "Northeastern University", "Burlington", "Andover","Paris", "Paris", "Madrid",
-       "Copley","Wilmington"]
+    source: ["Boston","Chicago","California","London","San Francisco","London",
+    "Northeastern University", "Burlington", "Andover","Paris", "Paris", "Madrid",
+    "Copley","Wilmington"]
   });
-  });
+});
 
 
-   </script>
+</script>
+
+<script>
+
+
+$(function(){
+  $("#fromlocation").autocomplete({
+    source: ["Boston","Chicago","California","London","San Francisco","London",
+    "Northeastern University", "Burlington", "Andover","Paris", "Paris", "Madrid",
+    "Copley","Wilmington"]
+  });
+});
+
+
+</script>
+
+<script>
+
+
+$(function(){
+  $("#tolocation").autocomplete({
+    source: ["Boston","Chicago","California","London","San Francisco","London",
+    "Northeastern University", "Burlington", "Andover","Paris", "Paris", "Madrid",
+    "Copley","Wilmington"]
+  });
+});
+
+
+</script>
 
 
 

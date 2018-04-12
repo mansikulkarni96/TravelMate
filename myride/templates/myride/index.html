@@ -44,10 +44,10 @@
             <li><a href="dashboard-my-profile.html">My Profile</a></li>
           </ul>
         </li>-->
-        <li ><a href="#">Username</a> <span class="arrow"></span>
+        <li ><a href="">Username</a> <span class="arrow"></span>
           <ul class="sub-menu">
             <li><a href="/myride">My Rides</a></li>
-            <li><a href="#">My Profile</a></li>
+
             <li><a href="/index">Sign Out</a></li>
           </ul>
         </li>
@@ -64,18 +64,13 @@
 
 
 <div class="container">
-  <div class="intro_text white-text div_zindex">
-    <h1>Welcome to TravelMate</h1>
-    <h4>Ride Sharing Application</h4>
-    {% csrf_token %}
 
-  </div>
-  <div class="ride_details">
+  <div class="ride_details" style="padding-top:8%">
     <h3 style="color:#000;text-align: center;">Your Past Rides</h3>
 
     <div class="btn-group btn-group-toggle", style="padding-bottom:10px;">
-      <button type="button" class="btn btn-secondary" disabled>Past Rides</button>
-      <a href="upcoming" class="btn btn-primary offset-3">Upcoming Rides</a>
+      <button type="button" class="btn btn-primary">Past Rides</button>
+      <a href="upcoming" class="btn btn-default offset-3">Upcoming Rides</a>
     </div>
 
     <!-- <div class="card bg-light col-md-2">

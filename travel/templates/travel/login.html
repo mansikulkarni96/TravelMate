@@ -34,15 +34,13 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				{{error}}
-				<form action="{% url 'travel:loginsubmit' %}" method="post" class="login100-form validate-form">
-					{% csrf_token %}
+				<form class="login100-form validate-form">
 					<span class="login100-form-title p-b-48">
-						TRAVELMATE
+						TRAVEL MATE
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="mail">
+						<input class="input100" type="text" name="email">
 						<span class="focus-input100" data-placeholder="Email"></span>
 					</div>
 
@@ -50,14 +48,16 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="password">
+						<input class="input100" type="password" name="pass">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<input class="login100-form-btn" type="submit" value="Login">
+							<button class="login100-form-btn">
+								Login
+							</button>
 						</div>
 					</div>
 
@@ -66,7 +66,9 @@
 							Don’t have an account?
 						</span>
 
-						<a class="txt2" href="{% url 'travel:register'%}">Sign Up</a>
+						<a class="txt2" href="{% url 'travel:register'%}">
+							Sign Up
+						</a>
 					</div>
 				</form>
 			</div>
