@@ -40,7 +40,7 @@
                           <li><a href="dashboard-my-profile.html">My Profile</a></li>
                       </ul>
                     </li>-->
-                    <li><a href="#">Username</a> <span class="arrow"></span>
+                    <li><a href="">{{request.session.username}}</a> <span class="arrow"></span>
                         <ul class="sub-menu">
                             <li><a href="/myride">My Rides</a></li>
 
@@ -49,7 +49,7 @@
                     </li>
                 </ul>
                 <div class="submit_listing">
-                    <a href="/offer" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->+ Offer a ride</a>
+                    <a href="{% url 'offer:index' request.session.userid %}" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->+ Offer a ride</a>
                 </div>
             </div>
         </div>
