@@ -56,7 +56,7 @@
           <li><a href="/myride">My rides</a></li>
           <!--<li><a href="#">My Profile</a></li>-->
 
-          <li><a href="/index">Sign Out</a></li>
+          <li><a href="{% url 'travel:signout'%}">Sign Out</a></li>
         </ul>
       </li>
 
@@ -108,7 +108,7 @@
       <button type="submit"> Submit</button>
     </form> -->
 
-    <form action="{% url 'book:searchres' %}" method="post">
+    <form action="{% url 'book:searchres' userid %}" method="post">
       {% csrf_token %}
       <div class="form-group">
         <input type="text" name="fromlocation" id = "fromlocation" class="form-control" placeholder="Leaving From" required>
@@ -398,15 +398,3 @@ $(function(){
     }
 }
 </script>
-
-
-<!--<form action = "{% url 'book:searchres' %}" method = "post">
-{% csrf_token %}
-<label for = "fromlocation"> From Location </label>
-<input type = "textfield" id = "fromlocation" name = "fromlocation">
-<label for = "tolocation"> To Location </label>
-<input type = "textfield" id = "tolocation" name = "tolocation">
-<label for = "startdate"> Start Date </label>
-<input type = "textfield" id = "startdate" name = "startdate">
-<input type = "submit" value = "Find a ride">
-</form>-->

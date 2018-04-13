@@ -1,9 +1,9 @@
 from django.shortcuts import render,get_object_or_404
 from .models import User as GenUser
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,logout
 from django.contrib.auth import login as auth_login
-from django.contrib.auth import logout
+
 
 def index(request):
     return render(request,'travel/index.html')
@@ -48,8 +48,10 @@ def registersubmit(request):
     return render(request,'travel/index.html')
 
 
-
-
-# def logout_view(request):
-#del request.session['username']
-#     logout(request)
+def logout_view(request):
+    if request.session.has_key('username'):
+        del request.session['username']
+    if request.session.has_key('userid'):
+        del request.session['userid']
+    logout(request)
+    return render(request,'travel/index.html')

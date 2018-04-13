@@ -13,7 +13,7 @@ def index(request,userid):
 
 
 def offerdetails(request,userid):
-    #print(request.POST)
+    print(request.POST)
     if request.session.has_key('userid') and request.session['userid'] == int(userid):
         user = get_object_or_404(User,pk = userid)
         ent = Enlist()

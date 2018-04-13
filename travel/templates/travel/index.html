@@ -47,7 +47,7 @@
                   <!--<li><a href="#">My Profile</a></li>-->
                 </ul>
               </li>
-              <li><a href="#">Sign Out</a></li>
+              <li><a href="{% url 'travel:signout'%}">Sign Out</a></li>
               {% else %}
               <li ><a href="{% url 'travel:register'%}">Sign Up</a> <span class="arrow"></span>
               	 <!--<ul class="sub-menu">
@@ -117,7 +117,11 @@
                         <a href ="{% url 'travel:login'%}"> <input type="submit"   value="Offer a ride" class="btn btn-block"></a>
                       {% endif %}
                     &nbsp;   <p >OR</p>
-                        <a href ='/book'><input type="submit" href ='/book' value="Find a ride" class="btn btn-block"></a>
+                    {% if request.session.userid %}
+                      <a href ="{% url 'book:index' request.session.userid %}"><input type="submit" href ='/book' value="Find a ride" class="btn btn-block"></a>
+                    {% else %}
+                      <a href ="{% url 'travel:login'%}"> <input type="submit"   value="Offer a ride" class="btn btn-block"></a>
+                    {% endif %}
                     &nbsp;
                     	<!--<a href ='/myride'><input type="submit" href ='/myride' value="My Rides" class="btn btn-block"></a>-->
                     </div>
@@ -143,21 +147,3 @@
   </div>
 	</div>
 </section>
-
-
-
-
-
-
-
-
-<!--<form action = "{% url 'book:searchres' %}" method = "post">
-  {% csrf_token %}
-  <label for = "fromlocation"> From Location </label>
-  <input type = "textfield" id = "fromlocation" name = "fromlocation">
-  <label for = "tolocation"> To Location </label>
-  <input type = "textfield" id = "tolocation" name = "tolocation">
-  <label for = "startdate"> Start Date </label>
-  <input type = "textfield" id = "startdate" name = "startdate">
-  <input type = "submit" value = "Find a ride">
-</form>-->
