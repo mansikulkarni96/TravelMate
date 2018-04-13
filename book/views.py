@@ -7,7 +7,7 @@ from .models import Enlist
 # get form data here and
 
 def index(request):
-    return render(request,'travel/index.html')
+    return render(request,'book/bookindex.html')
 
 
 

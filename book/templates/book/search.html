@@ -8,53 +8,53 @@
 <!--FontAwesome Font Style -->
 <link href="static/css/font-awesome.min.css" rel="stylesheet">
 <link href="{% static 'css/accordion.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static  'css/rating1.css' %}" type="text/css">
+
+
 
 <!-- Google-Font-->
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,800" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 <header id="header">
-    <nav class="navbar navbar-default navbar-fixed-top" data-spy="affix" data-offset-top="10">
-        <div class="container">
-            <div class="navbar-header">
-                <div class="logo"><a href="{% url 'travel:index' %}"><img src="{%static 'images/logo1.png'%}"
-                                                                          alt="image"/></a></div>
-                <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse"
-                        class="navbar-toggle collapsed" type="button">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" id="navigation">
-                <ul class="nav navbar-nav">
-                    <!--<li class="menu-item-has-children"><a href="#">User Panel</a> <span class="arrow"></span>
-                         <ul class="sub-menu">
-                          <li><a href="dashboard.html">Dashboard</a></li>
-                          <li><a href="dashboard-my-listings.html">My Listings</a></li>
-                          <li><a href="dashboard-reviews.html">Reviews</a></li>
-                          <li><a href="dashboard-bookmarks.html">Bookmarks</a></li>
-                          <li><a href="blog-single.html">Add Listing</a></li>
-                          <li><a href="dashboard-my-profile.html">My Profile</a></li>
-                      </ul>
-                    </li>-->
-                    <li><a href="#">{{request.session.username}}</a> <span class="arrow"></span>
-                        <ul class="sub-menu">
-                            <li><a href="/myride">My Rides</a></li>
-                            <!--<li><a href="#">My Profile</a></li>-->
+  <nav class="navbar navbar-default navbar-fixed-top" data-spy="affix" data-offset-top="10">
+    <div class="container">
+      <div class="navbar-header">
+        <div class="logo"><a href="{% url 'travel:index' %}"><img src="{%static 'images/logo1.png'%}"
+          alt="image"/></a></div>
+          <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse"
+          class="navbar-toggle collapsed" type="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="navigation">
+        <ul class="nav navbar-nav">
+          <!--<li class="menu-item-has-children"><a href="#">User Panel</a> <span class="arrow"></span>
+          <ul class="sub-menu">
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="dashboard-my-listings.html">My Listings</a></li>
+          <li><a href="dashboard-reviews.html">Reviews</a></li>
+          <li><a href="dashboard-bookmarks.html">Bookmarks</a></li>
+          <li><a href="blog-single.html">Add Listing</a></li>
+          <li><a href="dashboard-my-profile.html">My Profile</a></li>
+        </ul>
+      </li>-->
+      <li><a href="">{{request.session.username}}</a> <span class="arrow"></span>
+        <ul class="sub-menu">
+          <li><a href="/myride">My Rides</a></li>
 
-                            <li><a href="/index">Sign Out</a></li>
-                        </ul>
-                    </li>
-
-                    <!--<li><a href="signin.html">Sign In</a></li>-->
-                </ul>
-                <div class="submit_listing">
-                    <a href="/offer" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->+ Offer a ride</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+          <li><a href="/index">Sign Out</a></li>
+        </ul>
+      </li>
+    </ul>
+    <div class="submit_listing">
+      <a href="{% url 'offer:index' request.session.userid %}" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->+ Offer a ride</a>
+    </div>
+  </div>
+</div>
+</nav>
 </header>
 <!--<h1>Book index</h1>-->
 <link rel="stylesheet" href="{% static 'css/style.css' %}" type='text/css'/>
@@ -68,27 +68,27 @@
     <div class="text-mid">
 
 
-            <div class="accordionWrapper">
-                <div class="container">
+            <div class="accordionWrapper" >
+                <div class="container" style="width: 100%">
                     <div class="search_form">
 
-                            <div class="form-group">
+                            <div class="form-group" style="width: 20%">
                                 <input type="text" id="fromlocation" class="form-control" placeholder={{fromlocation}}
                                        disabled="true">
                             </div>
-                            <p style="float: left">&nbsp;</p>
-                            <div class="form-group">
+                            <p style="float: left;width: 3%">&nbsp;</p>
+                            <div class="form-group" style="width: 20%">
                                 <input type="text" id="tolocation" class="form-control" placeholder={{tolocation}}
                                        disabled="true">
                             </div>
-                            <p style="float: left">&nbsp;</p>
-                            <div class="form-group">
+                            <p style="float: left;width: 3%">&nbsp;</p>
+                            <div class="form-group" style="width: 30%">
                                 <input type="text" id="startdate" class="form-control" value={{departure}}
                                        disabled="true">
                             </div>
-                            <p style="float: left">&nbsp;</p>
-                            <div class="form-group search_btn">
-                                <a href="/book"> <input type="submit" value="Modify Search" class="btn btn-block" style="height:60px; margin-left:10px;"></a>
+                            <p style="float: left;width: 3%">&nbsp;</p>
+                            <div class="form-group search_btn" style="width: 15%">
+                                <a href="/book"> <input type="submit" value="Modify Search" class="btn btn-block" style="margin-left:2%;"></a>
                             </div>
 
                     </div>
@@ -108,25 +108,38 @@
                   {% endfor %}
                 </ul> -->
 
-                <table>
-                  <tr>
-                    <th>Date</th>
-                    <th>Ride Offered By</th>
-                    <th>Fare Price</th>
-                    <th></th>
-                  </tr>
+  <table>
+    <tr>
+      <th>Start Date</th>
+      <th>Ride Offered By</th>
+      <th>Car Model</th>
+      <th>Fare Price</th>
+      <th></th>
+    </tr>
 
-                  {% for enlist in all_enlists %}
-                  <tr>
-                    <td>{{enlist.start_date}}</td>
-                    <td>{{enlist.uid.fname}}</td>
-                    <td>{{enlist.fare}}</td>
-                    <td>
-                      <input type="submit" data-toggle="modal" data-target="#myModal" value="Book" class="btn" style="margin-left:0%;margin-top:4%">
-                    </td>
-                  </tr>
-                  {% endfor %}
-                </table>
+    {% for enlist in all_enlists %}
+    <tr>
+      <td style="width: 10%">{{enlist.start_date}}</td>
+      <td style="width: 30%;">
+        <img src="{% static "images/img_avatar.png" %}" alt="John" style="width:30%; height: 25%">
+        <span class="rating">
+          <input type="radio" id="star5" name="rating" value="5"  disabled="true"/><label for="star5" title="Rocks!">5 stars</label>
+          <input type="radio" id="star4" name="rating" value="4"  checked disabled="true"/><label for="star4" title="Pretty good">4 stars</label>
+          <input type="radio" id="star3" name="rating" value="3"  disabled="true" /><label for="star3" title="Meh">3 stars</label>
+          <input type="radio" id="star2" name="rating" value="2"  disabled="true"/><label for="star2" title="Kinda bad">2 stars</label>
+          <input type="radio" id="star1" name="rating" value="1"  disabled="true"/><label for="star1" title="Sucks big time">1 star</label>
+        </span>
+        <br>
+        <b>Name: </b>{{enlist.uid.fname}}
+      </td>
+      <td style="width: 10%">{{enlist.car_model}}</td>
+      <td style="width: 10%">${{enlist.fare}}</td>
+      <td style="width: 10%">
+        <input type="submit" data-toggle="modal" data-target="#myModal" value="Book" class="btn" style="margin-left:0%;margin-top:4%">
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
 
 
                 <!-- <div class="accordionItem open">
