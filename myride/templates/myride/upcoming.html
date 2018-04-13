@@ -67,10 +67,22 @@
     <h3 style="color:#000;text-align: center;">Your Upcoming Rides</h3>
 
     <div class="btn-group btn-group-toggle", style="padding-bottom:10px;">
-      <input type="button" value="Past Rides" class="btn btn-default" onClick="javascript:history.go(-1);">
+      <input type="button" value="Past Rides" class="btn btn-default" onclick="location.href='/myride';">
       <button type="button" class="btn btn-primary offset-3">Upcoming Rides</button>
     </div>
+    <div class="card bg-light mb-3">
+      <div class="card-block">
+        <div class="container">
+            <img class="col-md-4" src="{% static "images/img_avatar.png" %}" alt="avatar" style="width:200px;"/>
+            <div class="card-body">
+              <strong>Name:</strong> Dave</div>
 
+            <div class="card-body"><strong>Start Date:</strong> 14/02/2018</div>
+            
+        </div>
+
+        </div>
+      </div>
     <div class="card bg-light mb-3">
       <div class="card-block">
         <div class="container">
