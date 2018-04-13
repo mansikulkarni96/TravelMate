@@ -63,7 +63,7 @@
       <!--<li><a href="signin.html">Sign In</a></li>-->
     </ul>
     <div class="submit_listing">
-      <a href="/offer" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->+ Offer a ride</a>
+      <a href="{% url 'offer:index' request.session.userid %}" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->+ Offer a ride</a>
     </div>
   </div>
 </div>
