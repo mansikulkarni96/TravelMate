@@ -5,11 +5,12 @@ from .models import Reservation
 from .models import Enlist
 
 # get form data here and
-def index(request):
-    # fromlocation = request.POST['fromlocation']
-    # tolocation = request.POST['tolocation']
 
-    return render(request,'book/bookindex.html')
+def index(request):
+    return render(request,'travel/index.html')
+
+
+
 
 def searchres(request):
     # print(request.POST)
