@@ -89,7 +89,8 @@
                             </div>
                             <p style="float: left;width: 3%">&nbsp;</p>
                             <div class="form-group search_btn" style="width: 15%">
-                                <input type="submit" value="Modify Search" class="btn btn-block" style="margin-left:2%;">
+                              <a href="{% url 'book:index' request.session.userid %}" class="btn btn-block" style="margin-left: 2%;">Modify Search
+                              </a>
                             </div>
                           </form>
 
