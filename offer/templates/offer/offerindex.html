@@ -173,7 +173,7 @@
 
                 <div class="idealforms add-ride" style="width: 45%; display: table-cell;">
                     <h5 style="color:#000;padding-left:1em;padding-top:1em">License Plate No</h5>
-                    <input type="text" id="licensenumber" name = "car_no" class="form-control" required>
+                    <input type="number" id="licensenumber" name = "car_no" class="form-control" onkeydown="javascript: return event.keyCode == 69 ? false : true" required>
                 </div>
             </div>
 
@@ -194,18 +194,24 @@
                 <div style="width=10%"></div>
                 <div class="idealforms add-ride" style="width:  45%; display: table-cell;">
                     <h5 style="color:#000;padding-left:1em;padding-top:1em">Fare</h5>
-                    <input type="number" id="fare" name = "fare" min="0.0" step="1" class="form-control" placeholder="Enter Fare" required>
+                    <input type="number" id="fare" name = "fare" min="0.0" step="1" class="form-control" placeholder="Enter Fare ($)" required>
                 </div>
             </div>
 
                 <h5 style="color:#000; padding-left:1em; padding-top:1em"></h5>
-
-                <input type="submit" value="Post a Ride" class="btn btn-block">
+                <div style="width: 100%; padding-top:3%;display: table;">
+                    <div class="idealforms add-ride" style="width:  45%;padding-left: 30%; display: table-cell;">
+                        <a href="/"> <input value="Cancel"  class="btn btn-block" style="background:Red; padding: 1.2em "></a>
+                    </div>
+                    <div style="width=0%"></div>
+                     <div class="idealforms add-ride" style="width:45%;padding-right: 30%; display: table-cell;">
+                        <input type="submit" value="Post a Ride" class="btn btn-block">
+                     </div>
+                 </div>
             </form>
             <br>
-            <a href="/">
-                <input  value="Cancel"  class="btn btn-block"
-                       style="background:Red; padding: 1.2em "></a>
+            
+               
 
             <h5 style="color:#000; padding-left:1em; padding-top:1em"></h5>
         </div>
