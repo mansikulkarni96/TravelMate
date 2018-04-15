@@ -55,7 +55,7 @@
         <!--<li><a href="signin.html">Sign In</a></li>-->
       </ul>
       <div class="submit_listing">
-        <a href="/book" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->Search a Ride</a>
+        <a href="/book" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->Book a Ride</a>
       </div>
     </div>
   </div>
@@ -70,7 +70,7 @@
 
     <div class="btn-group btn-group-toggle", style="padding-bottom:10px;">
       <button type="button" class="btn btn-primary">Past Rides</button>
-      <a href="upcoming" class="btn btn-default offset-3">Upcoming Rides</a>
+      <a href="{% url 'myride:upcoming'%}" class="btn btn-default offset-3">Upcoming Rides</a>
     </div>
 
     <!-- <div class="card bg-light col-md-2">

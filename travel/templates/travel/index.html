@@ -118,9 +118,9 @@
                       {% endif %}
                     &nbsp;   <p >OR</p>
                     {% if request.session.userid %}
-                      <a href ="{% url 'book:index' request.session.userid %}"><input type="submit" href ='/book' value="Find a ride" class="btn btn-block"></a>
+                      <a href ="{% url 'book:index' request.session.userid %}"><input type="submit" href ='/book' value="Book a ride" class="btn btn-block"></a>
                     {% else %}
-                      <a href ="{% url 'travel:login'%}"> <input type="submit"   value="Find a ride" class="btn btn-block"></a>
+                      <a href ="{% url 'travel:login'%}"> <input type="submit"   value="Book a ride" class="btn btn-block"></a>
                     {% endif %}
                     &nbsp;
                     	<!--<a href ='/myride'><input type="submit" href ='/myride' value="My Rides" class="btn btn-block"></a>-->

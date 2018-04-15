@@ -45,7 +45,7 @@ def searchres(request,userid):
 def bookdetails(request,userid):
     if request.session.has_key('userid') and request.session['userid'] == int(userid):
         enlistid = request.POST.get('eid')
-        
+
         user = get_object_or_404(User,pk = userid)
         enlist = get_object_or_404(Enlist,pk = enlistid)
         reservation = Reservation()
@@ -59,6 +59,6 @@ def bookdetails(request,userid):
         seat = seat - 1
         enlist.seat = seat
         enlist.save()
-        return render(request,'myride/index.html')
+        return render(request,'myride/upcoming.html')
     else:
         return render(request,'travel/index.html')
