@@ -20,15 +20,18 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- online-fonts -->
 <link href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Raleway+Dots' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="{%static 'css/main.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+
+	<link rel="stylesheet" type="text/css" href="{%static 'css/main.css' %}">
+
 </head>
 <body>
 <!--header-->
-	<div class="header-w3l">
-		<h1>TRAVEL MATE</h1>
-	</div>
+
 <!--//header-->
 <!--main-->
-<div class="main-agileits">
+<!--<div class="main-agileits">
 	<h2 class="sub-head">Sign Up</h2>
 		<div class="sub-main">
 			<form action="{% url 'travel:registersubmit' %}" method="post">
@@ -40,11 +43,14 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				<input placeholder="Phone Number" name="number" class="number" type="text" required="">
 					<span class="icon3"><i class="fa fa-phone" aria-hidden="true"></i></span><br>
 				<input placeholder="Email" id="txtEmail" name="mail" class="mail" type="text" onblur="checkEmail();" required="true">
+				<span id="emailError" class="confirmMessage"></span>
 					<span class="icon4"><i class="fa fa-envelope" aria-hidden="true"></i></span><br>
-				<input  placeholder="Password" name="password" class="pass" type="password" required="true">
+				<input  placeholder="Password" id="password" class="pass" type="password" required="true">
 					<span class="icon5"><i class="fa fa-unlock" aria-hidden="true"></i></span><br>
-				<input  placeholder="Confirm Password" class="pass" type="password" required="true">
+				<input  placeholder="Confirm Password" id="confirmpassword" class="pass" type="password" onblur="checkSame(); return false;" required="true">
+
 					<span class="icon6"><i class="fa fa-unlock" aria-hidden="true"></i></span><br>
+					<span id="confirmMessage" class="confirmMessage"></span>
 
 				<input type="submit" value="sign up">
 			</form>
@@ -52,19 +58,127 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<div class="clear"></div>
 </div>
 <!--//main-->
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				{{error}}
+				<form class="login100-form validate-form" action="{% url 'travel:registersubmit' %}" method="post">
+					{% csrf_token %}
+					<span class="login100-form-title p-b-48">
+						TRAVELMATE
+					</span>
+					<div class="wrap-input100 validate-input" >
+						<input class="input100" type="text" name="fname" required>
+						<span class="focus-input100" data-placeholder="First Name"></span>
+					</div>
+					<div class="wrap-input100 validate-input" >
+						<input class="input100" type="text" name="lname" required>
+						<span class="focus-input100" data-placeholder="Last Name"></span>
+					</div>
+					<div class="wrap-input100 validate-input" >
+						<input type="number" name="number" class="input100" onKeyDown="if(this.value.length==10 && event.keyCode!=8) return false;" required/>
+						<!--<input  name="text" class="input100" type="number" maxlength="10">-->
+						<span class="focus-input100" data-placeholder="Phone Number"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						<input  class="input100" id="txtEmail" name="mail" class="mail" type="text" onblur="checkEmail();" required>
+						<span class="focus-input100" data-placeholder="Email (Husky Id)"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password" name="password" id="password" required>
+						<span class="focus-input100" data-placeholder="Password"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password" name="confirmpassword" id="confirmpassword" onblur="checkSame(); return false;" required>
+						<span class="focus-input100" data-placeholder="Confirm Password"></span>
+					</div>
+					<span id="confirmMessage" class="confirmMessage"></span>
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" type="submit" value="sign up">
+								Sign Up
+							</button>
+							<!--<input class="login100-form-btn" type="submit" value="Login">-->
+						</div>
+					</div>
+
+					<div class="text-center p-t-115">
+						<span class="txt1">
+							Already have an account?
+						</span>
+
+						<a class="txt2" href="{% url 'travel:login'%}">Log In</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
 </body>
 <script>
     function checkEmail() {
+    	var message = document.getElementById('confirmMessage');
+    	var goodColor = "#ff6666";
         var email = document.getElementById('txtEmail');
         var filter = /^\w+[\+\.\w-]*@*(\husky.neu.edu)+$/;
         if (!filter.test(email.value)) {
-            alert('Please provide a valid email address');
+         	//email.style.border = "2px solid Red";
+            message.innerHTML = "Please provide a valid Husky Id!"
+            message.style.color = goodColor;
             email.value="";
             return false;
         }
         else {
-        	alert('Valid ');}
+        	//alert('Valid ');
+        	}
     }
 </script>
+<script>
+    function checkSame()
+{
+    //Store the password field objects into variables ...
+    var password = document.getElementById('password');
+    var confirmpassword = document.getElementById('confirmpassword');
+    //Store the Confimation Message Object ...
+    var message = document.getElementById('confirmMessage');
+    //Set the colors we will be using ...
+    var goodColor = "#ff6666";
+    var badColor = "#ffffff";
+    //Compare the values in the password field
+    //and the confirmation field
+     if(password.value != confirmpassword.value && confirmpassword.value !=""){
+        //The passwords match.
+        //Set the color to the good color and inform
+        //the user that they have entered the correct password
+        //confirmpassword.style.border = "2px solid Red";
+        message.style.color = goodColor;
+        message.innerHTML = "Password cannot be different!"
+        password.value="";
+        confirmpassword.value="";
+
+    }else{
+        //The passwords do not match.
+        //Set the color to the bad color and
+        //notify the user.
+        password.style.border = "";
+        confirmpassword.style.backgroundColor = "";
+        message.innerHTML = "";
+    }
+}
+</script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/jquery/jquery-3.2.1.min.js'%}"></script>
+
+<!--===============================================================================================-->
+	<script src="{%static 'js/main.js' %}"></script>
+
 </html>
