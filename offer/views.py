@@ -26,7 +26,7 @@ def offerdetails(request,userid):
         ent.fare = request.POST.get('fare')
         ent.start_time =request.POST.get('start_time')
         #print request.POST.get('return_time')
-        ent.return_time =request.POST.get('start_time') # TODO needs to be changed later
+        ent.return_time =request.POST.get('return_time') # TODO needs to be changed later
         startdate = request.POST.get('start_date')
         parsed_date = datetime.strptime(str(startdate), "%m/%d/%Y")
         ent.start_date = parsed_date
