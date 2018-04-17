@@ -45,7 +45,6 @@ def searchres(request,userid):
 def bookdetails(request,userid):
     if request.session.has_key('userid') and request.session['userid'] == int(userid):
         enlistid = request.POST.get('eid')
-
         user = get_object_or_404(User,pk = userid)
         enlist = get_object_or_404(Enlist,pk = enlistid)
         reservation = Reservation()

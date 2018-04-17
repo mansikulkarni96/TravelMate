@@ -23,6 +23,15 @@ def rate(request):
 def upcoming(request):
     all_reservations = Reservation.objects.all().filter(uid = request.session['userid'],start_date__gte = date.today())
     print(all_reservations)
+    ent = Enlist.objects.all()
+    print("hello")
+    print(ent)
+
+    for enlist in ent:
+        print(enlist.uid)
+    for reservation in all_reservations:
+
+        print(reservation.eid)
     context  = {
         'all_reservations': all_reservations
     }

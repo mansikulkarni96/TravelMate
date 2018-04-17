@@ -17,133 +17,77 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,800" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 <header id="header">
-    <nav class="navbar navbar-default navbar-fixed-top" data-spy="affix" data-offset-top="10">
-        <div class="container">
-          <div class="navbar-header">
-            <div class="logo"> <a href="{% url 'travel:index' %}"><img src="{%static 'images/logo1.png'%}" alt="image"/></a> </div>
-            <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-          </div>
-          <div class="collapse navbar-collapse" id="navigation">
-            <ul class="nav navbar-nav">
-              <!--<li class="menu-item-has-children"><a href="#">User Panel</a> <span class="arrow"></span>
-              	 <ul class="sub-menu">
-                	<li><a href="dashboard.html">Dashboard</a></li>
-                    <li><a href="dashboard-my-listings.html">My Listings</a></li>
-                    <li><a href="dashboard-reviews.html">Reviews</a></li>
-                    <li><a href="dashboard-bookmarks.html">Bookmarks</a></li>
-                    <li><a href="blog-single.html">Add Listing</a></li>
-                    <li><a href="dashboard-my-profile.html">My Profile</a></li>
-                </ul>
-              </li>-->
-              {% if request.session.username%}
-              <li ><a href="#">{{request.session.username}}</a> <span class="arrow"></span>
-                <ul class="sub-menu">
-                  <li><a href="/myride">My Rides</a></li>
-                  <!--<li><a href="#">My Profile</a></li>-->
-                </ul>
-              </li>
-              <li><a href="{% url 'travel:signout'%}">Sign Out</a></li>
-              {% else %}
-              <li ><a href="{% url 'travel:register'%}">Sign Up</a> <span class="arrow"></span>
-              	 <!--<ul class="sub-menu">
-                	<li><a href="about-us.html">About Us</a></li>
-                    <li><a href="how-it-work.html">How it Work</a></li>
-
-                    <li><a href="contact-us.html">Contact Us</a></li>
-                </ul>-->
-              </li>
-              <li><a href="{% url 'travel:login'%}">Sign In</a></li>
-              {% endif %}
-
-
+  <nav class="navbar navbar-default navbar-fixed-top" data-spy="affix" data-offset-top="10">
+    <div class="container">
+      <div class="navbar-header">
+        <div class="logo"> <a href="{% url 'travel:index' %}"><img src="{%static 'images/logo1.png'%}" alt="image"/></a> </div>
+        <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="navigation">
+        <ul class="nav navbar-nav">
+          {% if request.session.username%}
+          <li ><a href="#">{{request.session.username}}</a> <span class="arrow"></span>
+            <ul class="sub-menu">
+              <li><a href="/myride">My Rides</a></li>
+              <!--<li><a href="#">My Profile</a></li>-->
             </ul>
+          </li>
+          <li><a href="{% url 'travel:signout'%}">Sign Out</a></li>
+          {% else %}
+          <li ><a href="{% url 'travel:register'%}">Sign Up</a> <span class="arrow"></span>
+          </li>
+          <li><a href="{% url 'travel:login'%}">Sign In</a></li>
+          {% endif %}
+        </ul>
 
-            <!--<div class="submit_listing">
-	            <a href="/offer" class="btn outline-btn"><i class="fa  fa-plus-circle"></i>+ Offer a Ride</a>
-            </div>-->
-          </div>
-        </div>
-    </nav>
+    </div>
+  </div>
+</nav>
 </header>
 <!--<h1>Book index</h1>-->
 <link rel="stylesheet" href="{% static 'css/style.css' %}" type = 'text/css'/>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
 
-<!--<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header"/>
-  </div>
-</nav>-->
 <section id="banner" class="parallex-bg section-padding">
-<div class="container">
-    	<div class="intro_text white-text div_zindex">
-    		<h1>Welcome to TravelMate</h1>
-	        <h4>Ride Sharing Application</h4>
-            <div class="search_form">
-
-                	<!--<div class="form-group select">
-                   		<select class="form-control">
-                	    	<option>Where are you?</option>
-            	            <option>Northeastern University</option>
-                            <option>Downtown</option>
-                            <option></option>
-        	                <option>Health & Fitness</option>
-    	                    <option>Beauty & Spas</option>
-                            <option>Hotels & Travel</option>
-                            <option>Automotive</option>
-	                    </select>
-                    </div>-->
-                  <!--<div class="form-group">
-                   		<input type="text" id = "fromlocation" class="form-control" placeholder="Leaving From">
-                    </div>
-                    <div class="form-group">
-                   		<input type="text" id = "tolocation" class="form-control" placeholder="Going To">
-                    </div>
-                    <div class="form-group">
-                   		<input type="date" id = "startdate" class="form-control" placeholder="Date">
-                    </div>-->
-
-
-                    <!--TODO need to dynamically fetch the user id after login-->
-                    <div style="padding-left:30%;padding-right:30%">
-                      {% if request.session.userid %}
-                        <a href ="{% url 'offer:index' request.session.userid %}"> <input type="submit"   value="Offer a ride" class="btn btn-block"></a>
-                      {% else %}
-                        <a href ="{% url 'travel:login'%}"> <input type="submit"   value="Offer a ride" class="btn btn-block"></a>
-                      {% endif %}
-                    &nbsp;   <p >OR</p>
-                    {% if request.session.userid %}
-                      <a href ="{% url 'book:index' request.session.userid %}"><input type="submit" href ='/book' value="Book a ride" class="btn btn-block"></a>
-                    {% else %}
-                      <a href ="{% url 'travel:login'%}"> <input type="submit"   value="Book a ride" class="btn btn-block"></a>
-                    {% endif %}
-                    &nbsp;
-                    	<!--<a href ='/myride'><input type="submit" href ='/myride' value="My Rides" class="btn btn-block"></a>-->
-                    </div>
-
-            </div>
+  <div class="container">
+    <div class="intro_text white-text div_zindex">
+      <h1>Welcome to TravelMate</h1>
+      <h4>Ride Sharing Application</h4>
+      <div class="search_form">
+        <div style="padding-left:30%;padding-right:30%">
+          {% if request.session.userid %}
+          <a href ="{% url 'offer:index' request.session.userid %}"> <input type="submit"   value="Offer a ride" class="btn btn-block"></a>
+          {% else %}
+          <a href ="{% url 'travel:login'%}"> <input type="submit"   value="Offer a ride" class="btn btn-block"></a>
+          {% endif %}
+          &nbsp;   <p >OR</p>
+          {% if request.session.userid %}
+          <a href ="{% url 'book:index' request.session.userid %}"><input type="submit" href ='/book' value="Book a ride" class="btn btn-block"></a>
+          {% else %}
+          <a href ="{% url 'travel:login'%}"> <input type="submit"   value="Book a ride" class="btn btn-block"></a>
+          {% endif %}
+          &nbsp;
         </div>
+      </div>
     </div>
-    <div class="dark-overlay"></div>
-
+  </div>
+  <div class="dark-overlay"></div>
 </section>
-
-
 
 <section id="about_info" class="section-padding">
-	<div class="container">
-        <div class="row">
-            <div class="col-sm-5" ><img src="{%static 'images/neu.png'%}" style="margin:auto;width:50%;display:block;margin-top:15%" /></div>
-            <div class="col-sm-2" ></div>
-            <div class="col-sm-5" ><h2>By Northeastern. </h2>
-                    <h2>For Northeastern!</h2>
-                    <p>Save time and hassle. Catch a ride with your fellow Huskies! You can either look for a ride or just offer your ride to share it with your fellow huskies!</p></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5" ><img src="{%static 'images/neu.png'%}" style="margin:auto;width:50%;display:block;margin-top:15%" /></div>
+      <div class="col-sm-2" ></div>
+      <div class="col-sm-5" ><h2>By Northeastern. </h2>
+        <h2>For Northeastern!</h2>
+        <p>Save time and hassle. Catch a ride with your fellow Huskies! You can either look for a ride or just offer your ride to share it with your fellow huskies!</p></div>
 
-  </div>
-	</div>
-</section>
+      </div>
+    </div>
+  </section>
