@@ -76,7 +76,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 						<span class="focus-input100" data-placeholder="Last Name"></span>
 					</div>
 					<div class="wrap-input100 validate-input" >
-						<input type="tel" name="number" class="input100" onKeyDown="if(this.value.length==10 && event.keyCode!=8) return false;" required/>
+						<input type="tel" name="number" class="input100" pattern="[0-9]{10}"  onKeyDown="if(this.value.length==10 && event.keyCode!=8) return false;" required/>
 						<!--<input  name="text" class="input100" type="number" maxlength="10">-->
 						<span class="focus-input100" data-placeholder="Phone Number"></span>
 					</div>
