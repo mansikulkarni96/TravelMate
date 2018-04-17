@@ -112,18 +112,21 @@
                 </ul> -->
 
   <table>
-    <tr>
+
+    {% if all_enlists %}
+      <tr>
       <th>Start Date</th>
       <th>Ride Offered By</th>
       <th>Car Model</th>
       <th>Fare Price</th>
       <th></th>
     </tr>
+        {% for enlist in all_enlists %}
 
-    {% for enlist in all_enlists %}
-    <tr>
-      <td style="width: 10%">{{enlist.start_date}} {{enlist.start_time}}</td>
-      <td style="width: 30%;">
+        <tr>
+
+        <td style="width: 10%">{{enlist.start_date}} {{enlist.start_time}}</td>
+        <td style="width: 30%;">
         <img src="{% static "images/img_avatar.png" %}" alt="John" style="width:30%; height: 25%">
         <span class="rating">
           <input type="radio" id="star5" name="rating" value="5"  disabled="true"/><label for="star5" title="Rocks!">5 stars</label>
@@ -134,18 +137,22 @@
         </span>
         <br>
         <b>Name: </b>{{enlist.uid.fname}}
-      </td>
-      <td style="width: 10%">{{enlist.car_model}}</td>
-      <td style="width: 10%">${{enlist.fare}}</td>
-      <td style="width: 10%">
+        </td>
+        <td style="width: 10%">{{enlist.car_model}}</td>
+        <td style="width: 10%">${{enlist.fare}}</td>
+        <td style="width: 10%">
         <form action="{% url 'book:bookdetails' request.session.userid %}" method="post">
           {% csrf_token %}
           <input type="hidden" name="eid" class="form-control" value={{enlist.id}}>
           <input type="submit" value="Book" class="btn" style="margin-left:0%;margin-top:4%">
         </form>
-      </td>
-    </tr>
-    {% endfor %}
+        </td>
+        </tr>
+      {% endfor %}
+    {% else %}
+        <tr><h3>Sorry, we could not find any matches :(</h3></tr>
+    {% endif %}
+
   </table>
 
 
