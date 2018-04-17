@@ -64,7 +64,7 @@ $(document).ready(function(){
         <!--<li><a href="signin.html">Sign In</a></li>-->
       </ul>
       <div class="submit_listing">
-        <a href="/book" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->Book a ride</a>
+        <a href="{% url 'book:index' request.session.userid %}" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->Book a ride</a>
       </div>
     </div>
   </div>

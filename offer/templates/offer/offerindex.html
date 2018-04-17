@@ -78,7 +78,7 @@
                     <!--<li><a href="signin.html">Sign In</a></li>-->
                 </ul>
                 <div class="submit_listing">
-                    <a href="/book" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->Book a ride</a>
+                    <a href="{% url 'book:index' request.session.userid %}" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->Book a ride</a>
                 </div>
             </div>
         </div>
@@ -186,7 +186,7 @@
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        
+
                     </select>
                 </div>
 

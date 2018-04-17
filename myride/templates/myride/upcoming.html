@@ -42,7 +42,7 @@
             <li><a href="dashboard-my-profile.html">My Profile</a></li>
           </ul>
         </li>-->
-        <li ><a href="">{{request.session.username}}</a> <span class="arrow"></span>
+        <li><a href="">{{request.session.username}}</a> <span class="arrow"></span>
           <ul class="sub-menu">
             <li><a href="/myride">My Rides</a></li>
             <!--<li><a href="#">My Profile</a></li>-->
@@ -53,7 +53,7 @@
         <!--<li><a href="signin.html">Sign In</a></li>-->
       </ul>
       <div class="submit_listing">
-        <a href="/book" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->Book a Ride</a>
+        <a href="{% url 'book:index' request.session.userid %}" class="btn outline-btn"><!--<i class="fa  fa-plus-circle"></i>-->Book a Ride</a>
       </div>
     </div>
   </div>
@@ -71,102 +71,28 @@
       <button type="button" class="btn btn-primary offset-3">Upcoming Rides</button>
     </div>
 
-    <div class="card bg-light mb-3">
-      <div class="card-block">
-        <div class="container">
-            <img class="col-md-4" src="{% static "images/img_avatar.png" %}" alt="avatar" style="width:200px;"/>
-            <div class="card-body">
-              <strong>Name:</strong>Rahul</div>
-
-            <div class="card-body"><strong>Start Date:</strong> 04/16/2018</div>
-
-        </div>
-
-        </div>
-      </div>
+    {% for reservation in all_reservations %}
 
     <div class="card bg-light mb-3">
       <div class="card-block">
         <div class="container">
-            <img class="col-md-4" src="{% static "images/img_avatar.png" %}" alt="avatar" style="width:200px;"/>
-            <div class="card-body">
-              <strong>Name:</strong> Dave</div>
+          <img class="col-md-4" src="{% static "images/img_avatar.png" %}" alt="avatar" style="width:200px;"/>
+          <div class="card-body">
+            <strong>Name:</strong>{{reservation.uid}}</div>
 
-            <div class="card-body"><strong>Start Date:</strong> 14/02/2018</div>
+            <div class="card-body"><strong>Start Date:</strong> {{reservation.start_date}}</div>
 
-        </div>
+          </div>
 
         </div>
       </div>
-    <div class="card bg-light mb-3">
-      <div class="card-block">
-        <div class="container">
-            <img class="col-md-4" src="{% static "images/img_avatar.png" %}" alt="avatar" style="width:200px;"/>
-            <div class="card-body">
-              <strong>Name:</strong> Steve</div>
-
-            <div class="card-body"><strong>Start Date:</strong> 04/02/2018</div>
-            <div class="card-body"><strong>End Date:</strong> 04/11/2018</div>
-        </div>
-
-        </div>
-      </div>
-
-
-      <div class="card bg-light mb-3">
-        <div class="card-block">
-          <div class="container">
-              <img class="col-md-4" src="{% static "images/img_avatar.png" %}" alt="avatar" style="width:200px;"/>
-              <div class="card-body">
-                <strong>Name:</strong> Dr. Banner</div>
-
-              <div class="card-body"><strong>Start Date:</strong> 04/13/2018</div>
-
-          </div>
-
-          </div>
-        </div>
-
-
-      <div class="card bg-light mb-3">
-        <div class="card-block">
-          <div class="container">
-              <img class="col-md-4" src="{% static "images/img_avatar.png" %}" alt="avatar" style="width:200px;"/>
-              <div class="card-body">
-                <strong>Name:</strong> Robert</div>
-
-              <div class="card-body"><strong>Start Date:</strong> 04/26/2018</div>
-              <div class="card-body"><strong>End Date:</strong> 05/11/2018</div>
-          </div>
-
-          </div>
-        </div>
-
-
-        <div class="card bg-light mb-3">
-          <div class="card-block">
-            <div class="container">
-                <img class="col-md-4" src="{% static "images/img_avatar.png" %}" alt="avatar" style="width:200px;"/>
-                <div class="card-body">
-                  <strong>Name:</strong>Natasha</div>
-
-                <div class="card-body"><strong>Start Date:</strong> 05/13/2018</div>
-
-            </div>
-
-            </div>
-          </div>
-
-
-
-          <!-- <div class="card-block, text-right">
-              <div class="btn btn-secondary disabled">Confirmed</div>
-          </div> -->
-        </div>
-
+      {% endfor %}
 
     </div>
+
+
   </div>
+</div>
 
 </body>
 </html>
