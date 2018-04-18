@@ -94,7 +94,11 @@ $(document).ready(function(){
         <div class="card-body"><strong>Car No: </strong> {{enlist.car_no}}</div>
 
         <div class=" text-right">
-          <button class="btn btn-danger" data-toggle="modal" data-target="#myModal"> Remove </button>
+          <form action="{% url 'offer:deleteride' request.session.userid %}" method="post">
+          {% csrf_token %}
+            <input type="hidden" name="eid" class="form-control" value={{enlist.id}}>
+            <input type="submit" value="Remove" class="btn btn-danger">
+          </form>
         </div>
         </div>
        <!-- <div class="card-block, text-right">

@@ -72,6 +72,7 @@
                             <li><a href="/myride">My Rides</a></li>
                             <!--<li><a href="#">My Profile</a></li>-->
                             <li><a href="{% url 'travel:signout'%}">Sign Out</a></li>
+                            <li><a href="{% url 'offer:allofferedrides' request.session.userid%}">My Enlistings</a></li>
                         </ul>
                     </li>
 

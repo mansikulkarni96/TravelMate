@@ -13,7 +13,6 @@ def index(request,userid):
 
 
 def offerdetails(request,userid):
-    print(request.POST)
     if request.session.has_key('userid') and request.session['userid'] == int(userid):
         user = get_object_or_404(User,pk = userid)
         ent = Enlist()
@@ -37,3 +36,24 @@ def offerdetails(request,userid):
         return render(request,'offer/offerdetails.html',context)
     else:
         return render(request,'travel/index.html')
+
+def deleteride(request,userid):
+    if request.session.has_key('userid') and request.session['userid'] == int(userid):
+        enlistid = request.POST.get('eid')
+        print enlistid
+        user = get_object_or_404(User,pk = userid)
+        if enlistid:
+            Enlist.objects.filter(pk = enlistid).delete()
+            all_enlists = Enlist.objects.filter(uid = user)
+            #print all_enlists
+            context = {'all_enlists':all_enlists}
+            return render(request,'offer/offerdetails.html',context)
+    else:
+        return render(request,'travel/index.html')
+
+def allofferedrides(request,userid):
+    if request.session.has_key('userid') and request.session['userid'] == int(userid):
+        user = get_object_or_404(User,pk = userid)
+        all_enlists = Enlist.objects.filter(uid = user)
+        context = {'all_enlists':all_enlists}
+        return render(request,'offer/offerdetails.html',context)

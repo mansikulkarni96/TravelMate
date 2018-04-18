@@ -31,11 +31,12 @@
       </div>
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav">
-      <li><a href="">{{request.session.username}}</a> <span class="arrow"></span>
+      <li><a href="#">{{request.session.username}}</a> <span class="arrow"></span>
         <ul class="sub-menu">
           <li><a href="/myride">My Rides</a></li>
 
           <li><a href="{% url 'travel:signout'%}">Sign Out</a></li>
+          <li><a href="{% url 'offer:allofferedrides' request.session.userid %}">My Enlistings</a></li>
         </ul>
       </li>
     </ul>
@@ -74,13 +75,11 @@
             </div>
             <p style="float: left;width: 3%">&nbsp;</p>
             <div class="form-group" style="width: 30%">
-              <input type="text" name="departure" class="form-control" value={{departure}}
-              placeholder="mm/dd/yyyy"   >
+              <input type="text" name="departure" class="form-control" value={{departure}}>
             </div>
             <p style="float: left;width: 3%">&nbsp;</p>
             <div class="form-group search_btn" style="width: 15%">
-              <a href="{% url 'book:index' request.session.userid %}" class="btn btn-block" style="margin-left: 2%;">Modify Search
-              </a>
+                <input type="submit" value="Modify Search" class="btn btn-block" style="margin-left: 2%;">
             </div>
           </form>
 
@@ -126,6 +125,8 @@
           </td>
         </tr>
         {% endfor %}
+        {% elif error %}
+        <tr><h3>{{error}}</h3></tr>
         {% else %}
         <tr><h3>Sorry, we could not find any matches :(</h3></tr>
         {% endif %}
