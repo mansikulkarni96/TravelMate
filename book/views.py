@@ -30,7 +30,7 @@ def searchres(request,userid):
         if departure and fromlocation and tolocation :
             parsed_date = datetime.strptime(str(departure), "%m/%d/%Y")
             all_enlists = Enlist.objects.filter(from_loc=fromlocation,to_loc=tolocation,start_date__lte = parsed_date,seat__gte=1, start_time__gte = user_start).order_by('start_time')
-            some_enlists = Enlist.objects.filter(from_loc=fromlocation,to_loc=tolocation,start_date__lte = parsed_date,seat__gte=1, start_time__lt = user_start).order_by('start_time')
+            some_enlists = Enlist.objects.filter(from_loc=fromlocation,to_loc=tolocation,start_date__lte = parsed_date,seat__gte=1, start_time__lt = user_start).order_by('-start_time')
             context = {
                 'all_enlists': all_enlists,
                 'fromlocation': fromlocation,
