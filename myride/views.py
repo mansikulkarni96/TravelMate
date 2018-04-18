@@ -31,7 +31,7 @@ def upcoming(request):
         print(enlist.uid)
     for reservation in all_reservations:
 
-        print(reservation.eid)
+        print(reservation.eid.uid.fname)
     context  = {
         'all_reservations': all_reservations
     }
