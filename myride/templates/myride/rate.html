@@ -46,10 +46,10 @@
             <li><a href="dashboard-my-profile.html">My Profile</a></li>
           </ul>
         </li>-->
-        <li ><a href="#">Username</a> <span class="arrow"></span>
+        <li ><a href="#">{{request.session.username}}</a> <span class="arrow"></span>
           <ul class="sub-menu">
             <li><a href="/myride">My Rides</a></li>
-            <li><a href="#">My Profile</a></li>
+            <li><a href="{% url 'offer:allofferedrides' request.session.userid %}">My Offerings</a></li>
             <li><a href="/index">Sign Out</a></li>
           </ul>
         </li>
