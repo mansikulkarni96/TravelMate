@@ -88,8 +88,9 @@
 
         </div>
       </div>
+       <h4> Search Results </h4>
  {% if all_enlists %}
-        <h4>Best Results</h4>
+
 
       <table>
 
@@ -180,9 +181,12 @@
         {% endfor %}
         {% elif error %}
         <tr><h3>{{error}}</h3></tr>
-        {% else %}
-        <tr><h4 style="padding-top:4%">Sorry, no matches found :(</h4></tr>
+
+
       </table>
+      {% endif %}
+      {% if not all_enlists and not some_enlists %}
+      <h3>Sorry, no matches found :(</h3>
       {% endif %}
     </div>
   </div>
