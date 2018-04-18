@@ -5,7 +5,6 @@
 1. However, the programs are independent of any operating systems and will run successfully in all platforms once the initial installation has been done. 
 
 
-
 ## INSTALLATION GUIDE:
 
 1. Download python 3.6.x from https://www.python.org/downloads/release/python-360/
@@ -21,3 +20,7 @@
 1. Now Perform the following steps: 
 	 1. Type in command in the command line: python manage.py runserver
 	 1. Open a browser and type in or copy paste the following URL: http://127.0.0.1:8000/
+
+
+## DEPLOYED TO:
+	http://tmate.pythonanywhere.com/
