@@ -8,7 +8,7 @@
 
 ## INSTALLATION GUIDE:
 
-1. Download python 3.6.x from https://www.python.org/downloads/release/python-360/ - automatic!
+1. Download python 3.6.x from https://www.python.org/downloads/release/python-360/
 1. From Windows Home go to Control Panel -> System and Security -> System -> Advanced System Settings -> Environment Variables and add two new variables in 'PATH' -> [Home directory of Python]; [Home directory of Python]\Scripts
 1. Check python version using the following command: python --version
 1. Install django using: pip install Django==1.10.3
@@ -20,4 +20,4 @@
 1. Navigate to the directory having the folder, i.e. navigate inside TravelMate which has manage.py file
 1. Now Perform the following steps: 
 	 1. Type in command in the command line: python manage.py runserver
-	 1. Open a browser and type in or copy paste the following URL: http://127.0.0.1:8000/ - automatic!
+	 1. Open a browser and type in or copy paste the following URL: http://127.0.0.1:8000/
