@@ -74,25 +74,25 @@
       <a href="{% url 'myride:upcoming'%}" class="btn btn-default offset-3">Upcoming Rides</a>
     </div>
 
-    <!-- <div class="card bg-light col-md-2">
-
-  </div> -->
+  {% if all_reservations %}
+  {% for reservation in all_reservations %}
   <div class="card bg-light mb-4">
     <div class="card-block">
       <div class="container">
 
         <img class="col-md-4" src="{% static "images/img_avatar.png" %}" alt="avatar" style="width:200px;"/>
-        <div class="card-body"><strong>Name:</strong>Loki</div>
+        <div class="card-body"><strong>Name:</strong>{{reservation.eid.uid.fname}} {{reservation.eid.uid.lname}}</div>
         <div class="card-body">
-          <strong>Start Date:</strong> 07/04/2017
-
+          <strong>Start Date:</strong> {{reservation.start_date}}
         </div>
-        <div class="card-body"><strong>End Date:</strong> 09/12/2017</div>
         <a href="rate" class="btn btn-primary btn-md-2">Rate</a>
       </div>
     </div>
   </div>
-
+  {% endfor %}
+  {% else %}
+  <h3>Sorry, you have no Past Rides :(</h3>
+  {% endif %}
 </div>
 </div>
 

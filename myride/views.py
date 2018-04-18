@@ -8,9 +8,7 @@ from datetime import date
 # Create your views here.
 
 def index(request):
-    print(request.session['userid'])
     all_reservations = Reservation.objects.all().filter(uid = request.session['userid'],start_date__lt = date.today())
-    print(all_reservations)
     context  = {
         'all_reservations': all_reservations
     }
@@ -18,20 +16,9 @@ def index(request):
 
 def rate(request):
     return render(request,'myride/rate.html')
-# later remove the below two functions and we'll just filter the results on
-# on index page of myride based on start/end date and current date
+
 def upcoming(request):
     all_reservations = Reservation.objects.all().filter(uid = request.session['userid'],start_date__gte = date.today())
-    print(all_reservations)
-    ent = Enlist.objects.all()
-    print("hello")
-    print(ent)
-
-    for enlist in ent:
-        print(enlist.uid)
-    for reservation in all_reservations:
-
-        print(reservation.eid.uid.fname)
     context  = {
         'all_reservations': all_reservations
     }
