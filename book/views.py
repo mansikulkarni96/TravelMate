@@ -23,15 +23,21 @@ def searchres(request,userid):
         fromlocation = request.POST.get('fromlocation')
         tolocation = request.POST.get('tolocation')
         departure = request.POST.get('departure')
+        user_start = request.POST.get('user_start')
+        print(user_start)
+
         context = {'error': 'Enter the details'}
         if departure and fromlocation and tolocation :
             parsed_date = datetime.strptime(str(departure), "%m/%d/%Y")
-            all_enlists = Enlist.objects.filter(from_loc=fromlocation,to_loc=tolocation,start_date = parsed_date,seat__gte=1).order_by('start_time')
+            all_enlists = Enlist.objects.filter(from_loc=fromlocation,to_loc=tolocation,start_date__lte = parsed_date,seat__gte=1, start_time__gte = user_start).order_by('start_time')
+            some_enlists = Enlist.objects.filter(from_loc=fromlocation,to_loc=tolocation,start_date__lte = parsed_date,seat__gte=1, start_time__lt = user_start).order_by('start_time')
             context = {
                 'all_enlists': all_enlists,
                 'fromlocation': fromlocation,
                 'tolocation': tolocation,
-                'departure': departure
+                'departure': departure,
+                'user_start': user_start,
+                'some_enlists': some_enlists
             }
             #print(departure)
         return render(request,'book/search.html',context)
@@ -52,6 +58,8 @@ def bookdetails(request,userid):
             reservation.from_loc = enlist.from_loc
             reservation.to_loc = enlist.to_loc
             reservation.start_date = enlist.start_date
+            reservation.start_time = enlist.start_time
+            reservation.return_time = enlist.return_time
             reservation.save()
             seat = enlist.seat
             seat = seat - 1

@@ -64,16 +64,21 @@
         <div class="search_form">
           <form action="{% url 'book:searchres' request.session.userid %}" method="post">
             {% csrf_token %}
-            <div class="form-group" style="width: 20%">
+            <div class="form-group" style="width: 15%">
               <input type="text" name="fromlocation" class="form-control" value={{fromlocation}} disabled>
             </div>
             <p style="float: left;width: 3%">&nbsp;</p>
-            <div class="form-group" style="width: 20%">
+            <div class="form-group" style="width: 15%">
               <input type="text" name="tolocation" class="form-control" value={{tolocation}} disabled>
             </div>
+
             <p style="float: left;width: 3%">&nbsp;</p>
-            <div class="form-group" style="width: 30%">
+            <div class="form-group" style="width: 17%">
               <input type="text" name="departure" class="form-control" value={{departure}} disabled>
+            </div>
+            <p style="float: left;width: 3%">&nbsp;</p>
+            <div class="form-group" style="width: 15%">
+              <input type="text" name="user_start" class="form-control" value={{user_start}} disabled>
             </div>
             <p style="float: left;width: 3%">&nbsp;</p>
             <div class="form-group search_btn" style="width: 15%">
@@ -83,7 +88,7 @@
 
         </div>
       </div>
-      <h4>Search Results</h4>
+      <h4>Best Results</h4>
 
       <table>
 
@@ -130,6 +135,56 @@
         {% endif %}
 
       </table>
+
+
+{% if some_enlists %}
+      <h4>Other Results</h4>
+
+      <table>
+
+
+        <tr>
+          <th>Start Date</th>
+          <th>Ride Offered By</th>
+          <th>Car Model</th>
+          <th>Fare Price</th>
+          <th></th>
+        </tr>
+        {% for enlist in some_enlists %}
+
+        <tr>
+
+          <td style="width: 10%">{{enlist.start_date}} {{enlist.start_time}}</td>
+          <td style="width: 30%;">
+            <img src="{% static "images/img_avatar.png" %}" alt="John" style="width:30%; height: 25%">
+            <span class="rating">
+              <input type="radio" id="star5" name="rating" value="5"  disabled="true"/><label for="star5" title="Rocks!">5 stars</label>
+              <input type="radio" id="star4" name="rating" value="4"  checked disabled="true"/><label for="star4" title="Pretty good">4 stars</label>
+              <input type="radio" id="star3" name="rating" value="3"  disabled="true" /><label for="star3" title="Meh">3 stars</label>
+              <input type="radio" id="star2" name="rating" value="2"  disabled="true"/><label for="star2" title="Kinda bad">2 stars</label>
+              <input type="radio" id="star1" name="rating" value="1"  disabled="true"/><label for="star1" title="Sucks big time">1 star</label>
+            </span>
+            <br>
+            <b>Name: </b>{{enlist.uid.fname}}
+          </td>
+          <td style="width: 10%">{{enlist.car_model}}</td>
+          <td style="width: 10%">${{enlist.fare}}</td>
+          <td style="width: 10%">
+            <form action="{% url 'book:bookdetails' request.session.userid %}" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="eid" class="form-control" value={{enlist.id}}>
+              <input type="submit" value="Book" class="btn" style="margin-left:0%;margin-top:4%">
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+        {% elif error %}
+        <tr><h3>{{error}}</h3></tr>
+        
+
+
+      </table>
+      {% endif %}
     </div>
   </div>
 </section>
