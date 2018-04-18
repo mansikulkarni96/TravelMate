@@ -40,7 +40,7 @@ def offerdetails(request,userid):
 def deleteride(request,userid):
     if request.session.has_key('userid') and request.session['userid'] == int(userid):
         enlistid = request.POST.get('eid')
-        print enlistid
+        #print enlistid
         user = get_object_or_404(User,pk = userid)
         if enlistid:
             Enlist.objects.filter(pk = enlistid).delete()

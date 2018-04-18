@@ -65,21 +65,19 @@
           <form action="{% url 'book:searchres' request.session.userid %}" method="post">
             {% csrf_token %}
             <div class="form-group" style="width: 20%">
-              <input type="text" name="fromlocation" class="form-control" value={{fromlocation}}
-              >
+              <input type="text" name="fromlocation" class="form-control" value={{fromlocation}} disabled>
             </div>
             <p style="float: left;width: 3%">&nbsp;</p>
             <div class="form-group" style="width: 20%">
-              <input type="text" name="tolocation" class="form-control" value={{tolocation}}
-              >
+              <input type="text" name="tolocation" class="form-control" value={{tolocation}} disabled>
             </div>
             <p style="float: left;width: 3%">&nbsp;</p>
             <div class="form-group" style="width: 30%">
-              <input type="text" name="departure" class="form-control" value={{departure}}>
+              <input type="text" name="departure" class="form-control" value={{departure}} disabled>
             </div>
             <p style="float: left;width: 3%">&nbsp;</p>
             <div class="form-group search_btn" style="width: 15%">
-                <input type="submit" value="Modify Search" class="btn btn-block" style="margin-left: 2%;">
+                 <a href="{% url 'book:index' request.session.userid %}" class="btn btn-block" style="margin-left:2%;">Modify Search</a>
             </div>
           </form>
 
